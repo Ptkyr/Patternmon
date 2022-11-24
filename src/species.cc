@@ -3,17 +3,14 @@
 #include "types.h"
 #include <iostream>
 
-Species::Species(std::string name, 
-        int hp, int atk, int def, 
-        int spatk, int spdef, int spe) :
-    Pokemon(name, hp, atk, def, spatk, spdef, spe) {}
+Species::Species(std::string name, Stats s): Pokemon(name, s) {}
 
 void Species::calcDamage(Move& m, const double mult) {
     double tmp = (2 * level / 5 + 2) * m.getBP() / 50;
     if (m.getPS() == Category::Physical) {
-        tmp *= 100.0 / stats[2]; // stats[2] = def
+        tmp *= 100.0 / stats.def;
     } else {
-        tmp *= 100.0 / stats[4]; // stats[4] = spdef
+        tmp *= 100.0 / stats.spdef;
     }
     const int dmg = tmp * mult;
     std::cout << name << " took " << dmg << " damage!" << std::endl;

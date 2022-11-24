@@ -7,16 +7,8 @@
 #include "types.h"
 #include <iostream>
 
-Pokemon::Pokemon(std::string& n, int hp, int atk, int def, int spatk, int spdef, int spe):
-        name{n}, moves{}, hp{2 * hp + level + 10}, max_hp{this->hp} {
-    stats.reserve(6);
-    stats.emplace_back(hp);
-    stats.emplace_back(atk);
-    stats.emplace_back(def);
-    stats.emplace_back(spatk);
-    stats.emplace_back(spdef);
-    stats.emplace_back(spe);
-}
+Pokemon::Pokemon(const std::string& n, Stats s):
+        name{n}, stats{s}, moves{}, hp{2 * stats.hp + level + 10}, max_hp{this->hp} {}
 
 Pokemon::~Pokemon() {
     for (auto& m: moves) {

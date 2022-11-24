@@ -9,7 +9,7 @@ class Species: public Pokemon {
     void calcDamage(Move& m, const double mult);
     void printHit(const double mult) const;
 public:
-    Species(std::string name, int hp, int atk, int def, int spatk, int spdef, int spe);
+    Species(std::string name, Stats s);
 
     void hitBy(WaterMove& wm, const double mult = 1) override;
     void hitBy(FireMove& fm, const double mult = 1) override;
