@@ -1,0 +1,19 @@
+#include "grass.h"
+
+Grass::Grass(Pokemon* p): PokemonDecorator(p) {}
+
+void Grass::hitBy(WaterMove& wm, const double mult) {
+    p->hitBy(wm, mult * 0.5);
+}
+
+void Grass::hitBy(FireMove& wm, const double mult) {
+    p->hitBy(wm, mult * 2);
+}
+
+void Grass::hitBy(GrassMove& wm, const double mult) {
+    p->hitBy(wm, mult * 0.5);
+}
+
+void Grass::hitBy(ElectricMove& wm, const double mult) {
+    p->hitBy(wm, mult * 2);
+}
