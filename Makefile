@@ -4,7 +4,7 @@ CXXFLAGS = -std=c++14 -g -MMD -Wall -Wextra -fsanitize=undefined,address \
 EXEC = ps
 OBJECTS = main.o pokemon.o species.o pokdec.o move.o \
 		  fire.o water.o grass.o electric.o
-DEPENDS = ${OBJECTS.o:.d}
+DEPENDS = ${OBJECTS:.o=.d}
 VPATH=src:src/headers
 
 ${EXEC}: ${OBJECTS}
