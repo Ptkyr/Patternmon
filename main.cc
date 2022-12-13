@@ -5,32 +5,51 @@
 #include "species.h"
 #include "types.h"
 #include "move.h"
+#include "route5.h"
+#include "coldstorage.h"
+#include "pokedex.h"
+#include "exceptions.h"
+
+using std::unique_ptr;
+using std::make_unique;
+using std::make_shared;
 
 int main() {
-    Pokemon* serperior = new Species{"Serperior", {75, 75, 95, 75, 95, 113}};
-    serperior = new Grass{serperior};
-    serperior->learn(new GrassMove{"Leaf Storm", Category::Special, 140, 15});
-    serperior->learn(new FireMove{"Hidden Power Fire", Category::Special, 60, 15});
+    unique_ptr<Pokemon> ludicolo = make_unique<Species>("Ludicolo", Stats{80, 70, 70, 90, 100, 70});
+    ludicolo = make_unique<Grass>(ludicolo.release());
+    ludicolo = make_unique<Water>(ludicolo.release());
+    ludicolo->learn(make_shared<WaterMove>("Surf", Category::Special, 90, 15));
+    ludicolo->learn(make_shared<GrassMove>("Energy Ball", Category::Special, 90, 15));
+    ludicolo->learn(make_shared<GroundMove>("Mud Slap", Category::Special, 20, 10));
+    ludicolo->learn(make_shared<ElectricMove>("Thunder Punch", Category::Physical, 75, 15));
 
-    Pokemon* ludicolo = new Species{"Ludicolo", {80, 70, 70, 90, 100, 70}};
-    ludicolo = new Grass{ludicolo};
-    ludicolo = new Water{ludicolo};
-    ludicolo->learn(new WaterMove{"Surf", Category::Special, 90, 15});
-    ludicolo->learn(new GrassMove{"Energy Ball", Category::Special, 90, 15});
+    try {
+        ludicolo->learn(make_shared<WaterMove>("Scald", Category::Special, 80, 15));
+    } catch (MoveExcept& me) {
+        std::cerr << me.what() << std::endl;
+    }
 
-    Pokemon* rotom_mow = new Species{"Rotom-Mow", {50, 65, 107, 105, 107, 86}};
-    rotom_mow = new Grass{rotom_mow};
-    rotom_mow = new Electric{rotom_mow};
-    rotom_mow->learn(new GrassMove{"Leaf Storm", Category::Special, 140, 15});
-    rotom_mow->learn(new ElectricMove{"Volt Switch", Category::Special, 70, 32});
+    unique_ptr<Pokemon> rotom_mow = make_unique<Species>("Rotom-Mow", Stats{50, 65, 107, 105, 107, 86});
+    rotom_mow = make_unique<Grass>(rotom_mow.release());
+    rotom_mow = make_unique<Electric>(rotom_mow.release());
+    rotom_mow->learn(make_shared<GrassMove>("Leaf Storm", Category::Special, 140, 15));
+    rotom_mow->learn(make_shared<ElectricMove>("Volt Switch", Category::Special, 70, 32));
 
-    // Use all attacks
-    serperior->attack(*ludicolo);
-    ludicolo->attack(*serperior);
-    serperior->attack(*rotom_mow);
+    // Use a random attack
+    ludicolo->attack(*rotom_mow);
     rotom_mow->attack(*ludicolo);
 
-    delete serperior;
-    delete ludicolo;
-    delete rotom_mow;
+    ColdStorage cs;
+    unique_ptr<Pokemon> encounter{cs.spawn()};
+    rotom_mow->attack(*encounter);
+
+    unique_ptr<Pokemon> lanturn = make_unique<Species>("Lanturn", Stats{125, 58, 58, 76, 76, 67});
+    lanturn = make_unique<Water>(lanturn.release());
+    lanturn = make_unique<Electric>(lanturn.release());
+
+    try {
+        lanturn->attack(*rotom_mow);
+    } catch (MoveExcept& me) {
+        std::cerr << me.what() << std::endl;
+    }
 }
