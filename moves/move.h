@@ -21,6 +21,7 @@ public:
     virtual ~Move() = 0;
 
     int getBP() const;
+    int getPP() const;
     Category getPS() const;
     virtual std::string getName() const;
     void use();

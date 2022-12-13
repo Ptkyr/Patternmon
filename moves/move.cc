@@ -9,6 +9,10 @@ int Move::getBP() const {
     return bp;
 }
 
+int Move::getPP() const {
+    return pp;
+}
+
 Category Move::getPS() const {
     return cat;
 }

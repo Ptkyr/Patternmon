@@ -10,7 +10,6 @@ public:
     WaterMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
-        use();
     }
     std::string getName() const override {
         return WATER + name + RESET;
@@ -22,7 +21,6 @@ public:
     FireMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
-        use();
     }
     std::string getName() const override {
         return FIRE + name + RESET;
@@ -34,7 +32,6 @@ public:
     GrassMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
-        use();
     }
     std::string getName() const override {
         return GRASS + name + RESET;
@@ -46,7 +43,6 @@ public:
     ElectricMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
-        use();
     }
     std::string getName() const override {
         return ELECTRIC + name + RESET;
@@ -58,7 +54,6 @@ public:
     GroundMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
-        use();
     }
     std::string getName() const override {
         return GROUND + name + RESET;

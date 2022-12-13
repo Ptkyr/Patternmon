@@ -6,6 +6,7 @@
 class MoveExcept {
 protected:
     std::string poke;
+    MoveExcept(): poke{} {}
     MoveExcept(std::string s): poke{s} {}
 public:
     virtual std::string what() const = 0;
@@ -24,6 +25,14 @@ public:
     NoMovesExcept(std::string s): MoveExcept{s} {}
     std::string what() const override {
         return poke + " has no moves!";
+    }
+};
+
+class NoPPExcept: public MoveExcept {
+public:
+    NoPPExcept(): MoveExcept{} {}
+    std::string what() const override {
+        return "There's no PP left for that move!";
     }
 };
 

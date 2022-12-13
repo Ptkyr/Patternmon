@@ -40,8 +40,15 @@ int main() {
     rotom_mow->attack(*ludicolo);
 
     ColdStorage cs;
-    unique_ptr<Pokemon> encounter{cs.spawn()};
-    rotom_mow->attack(*encounter);
+    try {
+        for (int i = 0; i < 30; ++i) {
+            unique_ptr<Pokemon> encounter{cs.spawn()};
+            rotom_mow->attack(*encounter);
+        }
+    } catch (MoveExcept& me) {
+        // Should run out of PP at some point
+        std::cerr << me.what() << std::endl;
+    }
 
     unique_ptr<Pokemon> lanturn = make_unique<Species>("Lanturn", Stats{125, 58, 58, 76, 76, 67});
     lanturn = make_unique<Water>(lanturn.release());

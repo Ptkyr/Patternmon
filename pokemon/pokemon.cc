@@ -28,5 +28,7 @@ void Pokemon::attack(Pokemon& p) const {
     std::uniform_int_distribution<> dist{0, static_cast<int>(moves.size() - 1)};
     Move* m = moves[dist(gen)].get();
     std::cout << name << " used " << m->getName() << "!" << std::endl;
+    if (m->getPP() <= 0) throw NoPPExcept{};
     m->hit(p);
+    m->use();
 }
