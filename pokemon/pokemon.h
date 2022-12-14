@@ -37,4 +37,9 @@ public:
     void attack(Pokemon& p) const;
 };
 
+template<typename T>
+void addType(std::unique_ptr<Pokemon>& p) {
+    p = std::make_unique<T>(p.release());
+}
+
 #endif
