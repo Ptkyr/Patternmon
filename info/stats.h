@@ -1,7 +1,8 @@
 #ifndef __STATS_H__
 #define __STATS_H__
 
-struct Stats {
+class Stats {
+public:
     const int hp;
     const int atk;
     const int def;
