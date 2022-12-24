@@ -33,3 +33,7 @@ void PokemonDecorator::hitBy(NormalMove& gm, const double mult) {
 void PokemonDecorator::hitBy(IceMove& gm, const double mult) {
     p->hitBy(gm, mult);
 }
+
+void PokemonDecorator::hitBy(FightingMove& gm, const double mult) {
+    p->hitBy(gm, mult);
+}

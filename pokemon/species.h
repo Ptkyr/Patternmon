@@ -19,6 +19,7 @@ public:
     void hitBy(GroundMove& gm, const double mult = 1) override;
     void hitBy(NormalMove& gm, const double mult = 1) override;
     void hitBy(IceMove& gm, const double mult = 1) override;
+    void hitBy(FightingMove& gm, const double mult = 1) override;
 };
 
 #endif
