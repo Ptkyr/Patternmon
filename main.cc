@@ -1,9 +1,10 @@
+#include "normal.h"
+#include "fire.h"
 #include "water.h"
 #include "grass.h"
-#include "fire.h"
-#include "normal.h"
-#include "ice.h"
 #include "electric.h"
+#include "ice.h"
+#include "fighting.h"
 #include "species.h"
 #include "types.h"
 #include "move.h"
@@ -21,6 +22,7 @@ int main() {
     addType<Grass>(ludicolo);
     addType<Water>(ludicolo);
     addType<Ice>(ludicolo);
+    addType<Fighting>(ludicolo);
     ludicolo->learn(make_shared<GhostMove>("Shadow Ball", Category::Special, 90, 15));
     ludicolo->learn(make_shared<DragonMove>("Draco Meteor", Category::Special, 90, 15));
     ludicolo->learn(make_shared<WaterMove>("Water Pulse", Category::Special, 20, 10));
