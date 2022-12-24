@@ -20,7 +20,8 @@ SOURCES = main.cc pokemon.cc species.cc pokdec.cc move.cc \
 		  fire.cc water.cc grass.cc electric.cc normal.cc ice.cc \
 		  fighting.cc \
 		  stats.cc \
-		  route.cc pokedex.cc
+		  route.cc \
+		  pokedex.cc deximpl.cc basicdex.cc colourdex.cc
 OBJECTS = ${SOURCES:.cc=.o}
 DEPENDS = ${SOURCES:%.cc=${DEP_DIR}/%.d}
 EXEC = ps

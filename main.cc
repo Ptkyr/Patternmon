@@ -49,7 +49,6 @@ int main() {
     ludicolo->attack(*rotom_mow);
     rotom_mow->attack(*ludicolo);
 
-    /*
     unique_ptr<Route> route = make_unique<ColdStorage>();
 
     try {
@@ -68,5 +67,4 @@ int main() {
         // Should run out of PP at some point
         std::cerr << me.what() << std::endl;
     }
-    */
 }
