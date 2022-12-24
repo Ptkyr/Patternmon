@@ -37,7 +37,7 @@ int main() {
     rotom_mow->learn(make_shared<PsychicMove>("Psychic", Category::Special, 140, 15));
     rotom_mow->learn(make_shared<IceMove>("Ice Beam", Category::Special, 90, 15));
     rotom_mow->learn(make_shared<SteelMove>("Iron Head", Category::Special, 90, 15));
-    rotom_mow->learn(make_shared<RockMove>("Stone Edge", Category::Special, 90, 15));
+    rotom_mow->learn(make_shared<FairyMove>("Dazzling Gleam", Category::Special, 90, 15));
 
     // Use a random attack
     ludicolo->attack(*rotom_mow);

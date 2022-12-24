@@ -73,3 +73,7 @@ void PokemonDecorator::hitBy(DarkMove& gm, const double mult) {
 void PokemonDecorator::hitBy(SteelMove& gm, const double mult) {
     p->hitBy(gm, mult);
 }
+
+void PokemonDecorator::hitBy(FairyMove& gm, const double mult) {
+    p->hitBy(gm, mult);
+}
