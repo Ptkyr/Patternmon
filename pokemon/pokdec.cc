@@ -25,3 +25,7 @@ void PokemonDecorator::hitBy(ElectricMove& wm, const double mult) {
 void PokemonDecorator::hitBy(GroundMove& gm, const double mult) {
     p->hitBy(gm, mult);
 }
+
+void PokemonDecorator::hitBy(NormalMove& gm, const double mult) {
+    p->hitBy(gm, mult);
+}

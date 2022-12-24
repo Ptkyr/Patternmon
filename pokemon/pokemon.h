@@ -13,6 +13,7 @@ class FireMove;
 class GrassMove;
 class ElectricMove;
 class GroundMove;
+class NormalMove;
 
 class Pokemon {
 protected:
@@ -32,6 +33,7 @@ public:
     virtual void hitBy(GrassMove& gm, const double mult = 1) = 0;
     virtual void hitBy(ElectricMove& em, const double mult = 1) = 0;
     virtual void hitBy(GroundMove& gm, const double mult = 1) = 0;
+    virtual void hitBy(NormalMove& gm, const double mult = 1) = 0;
 
     void learn(std::shared_ptr<Move> m);
     void attack(Pokemon& p) const;

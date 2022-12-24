@@ -8,6 +8,7 @@ class Move;
 class Species: public Pokemon {
     void calcDamage(Move& m, const double mult);
     void printHit(const double mult) const;
+    void helpHit(Move& m, const double mult);
 public:
     Species(std::string name, Stats s);
 
@@ -16,6 +17,7 @@ public:
     void hitBy(GrassMove& gm, const double mult = 1) override;
     void hitBy(ElectricMove& gm, const double mult = 1) override;
     void hitBy(GroundMove& gm, const double mult = 1) override;
+    void hitBy(NormalMove& gm, const double mult = 1) override;
 };
 
 #endif

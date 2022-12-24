@@ -30,32 +30,32 @@ void Species::printHit(const double mult) const {
     }
 }
 
-void Species::hitBy(WaterMove& wm, const double mult) {
+void Species::helpHit(Move& m, const double mult) {
     if (hp <= 0) return;
     printHit(mult);
-    calcDamage(wm, mult);
+    calcDamage(m, mult);
+}
+
+void Species::hitBy(WaterMove& wm, const double mult) {
+    helpHit(wm, mult);
 }
 
 void Species::hitBy(FireMove& wm, const double mult) {
-    if (hp <= 0) return;
-    printHit(mult);
-    calcDamage(wm, mult);
+    helpHit(wm, mult);
 }
 
 void Species::hitBy(GrassMove& wm, const double mult) {
-    if (hp <= 0) return;
-    printHit(mult);
-    calcDamage(wm, mult);
+    helpHit(wm, mult);
 }
 
 void Species::hitBy(ElectricMove& wm, const double mult) {
-    if (hp <= 0) return;
-    printHit(mult);
-    calcDamage(wm, mult);
+    helpHit(wm, mult);
 }
 
 void Species::hitBy(GroundMove& wm, const double mult) {
-    if (hp <= 0) return;
-    printHit(mult);
-    calcDamage(wm, mult);
+    helpHit(wm, mult);
+}
+
+void Species::hitBy(NormalMove& wm, const double mult) {
+    helpHit(wm, mult);
 }

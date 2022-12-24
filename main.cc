@@ -23,42 +23,39 @@ int main() {
     ludicolo->learn(make_shared<GroundMove>("Mud Slap", Category::Special, 20, 10));
     ludicolo->learn(make_shared<FireMove>("Fire Punch", Category::Physical, 75, 15));
 
+    /*
     try {
         ludicolo->learn(make_shared<WaterMove>("Scald", Category::Special, 80, 15));
     } catch (MoveExcept& me) {
         std::cerr << me.what() << std::endl;
     }
+    */
 
     unique_ptr<Pokemon> rotom_mow = make_unique<Species>("Rotom-Mow", Stats{50, 65, 107, 105, 107, 86});
     addType<Grass>(rotom_mow);
     addType<Electric>(rotom_mow);
     rotom_mow->learn(make_shared<GrassMove>("Leaf Storm", Category::Special, 140, 15));
-    rotom_mow->learn(make_shared<ElectricMove>("Volt Switch", Category::Special, 70, 32));
 
     // Use a random attack
     ludicolo->attack(*rotom_mow);
     rotom_mow->attack(*ludicolo);
 
-    /*
-    ColdStorage cs;
+    unique_ptr<Route> route = make_unique<ColdStorage>();
+
     try {
-        for (int i = 0; i < 30; ++i) {
-            unique_ptr<Pokemon> encounter{cs.spawn()};
+        for (int i = 0; i < 7; ++i) {
+            unique_ptr<Pokemon> encounter{route->spawn()};
+            rotom_mow->attack(*encounter);
+        }
+        // Switch to a different Factory,
+        //  different Pokemon will spawn
+        route = make_unique<Route5>();
+        for (int i = 0; i < 7; ++i) {
+            unique_ptr<Pokemon> encounter{route->spawn()};
             rotom_mow->attack(*encounter);
         }
     } catch (MoveExcept& me) {
         // Should run out of PP at some point
-        std::cerr << me.what() << std::endl;
-    }
-    */
-
-    unique_ptr<Pokemon> lanturn = make_unique<Species>("Lanturn", Stats{125, 58, 58, 76, 76, 67});
-    addType<Water>(lanturn);
-    addType<Electric>(lanturn);
-
-    try {
-        lanturn->attack(*rotom_mow);
-    } catch (MoveExcept& me) {
         std::cerr << me.what() << std::endl;
     }
 }
