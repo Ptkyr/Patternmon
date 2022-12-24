@@ -5,6 +5,7 @@
 #include "electric.h"
 #include "ice.h"
 #include "fighting.h"
+#include "poison.h"
 #include "species.h"
 #include "types.h"
 #include "move.h"
@@ -23,6 +24,7 @@ int main() {
     addType<Water>(ludicolo);
     addType<Ice>(ludicolo);
     addType<Fighting>(ludicolo);
+    addType<Poison>(ludicolo);
     ludicolo->learn(make_shared<GhostMove>("Shadow Ball", Category::Special, 90, 15));
     ludicolo->learn(make_shared<DragonMove>("Draco Meteor", Category::Special, 90, 15));
     ludicolo->learn(make_shared<WaterMove>("Water Pulse", Category::Special, 20, 10));
@@ -51,15 +53,16 @@ int main() {
 
     unique_ptr<Route> route = make_unique<ColdStorage>();
 
+    /*
     try {
-        for (int i = 0; i < 7; ++i) {
+        for (int i = 0; i < 30; ++i) {
             unique_ptr<Pokemon> encounter{route->spawn()};
             rotom_mow->attack(*encounter);
         }
         // Switch to a different Factory,
         //  different Pokemon will spawn
         route = make_unique<Route5>();
-        for (int i = 0; i < 7; ++i) {
+        for (int i = 0; i < 30; ++i) {
             unique_ptr<Pokemon> encounter{route->spawn()};
             rotom_mow->attack(*encounter);
         }
@@ -67,4 +70,5 @@ int main() {
         // Should run out of PP at some point
         std::cerr << me.what() << std::endl;
     }
+    */
 }
