@@ -18,10 +18,10 @@ int main() {
     unique_ptr<Pokemon> ludicolo = make_unique<Species>("Ludicolo", Stats{80, 70, 70, 90, 100, 70});
     addType<Grass>(ludicolo);
     addType<Water>(ludicolo);
-    ludicolo->learn(make_shared<WaterMove>("Surf", Category::Special, 90, 15));
-    ludicolo->learn(make_shared<GrassMove>("Energy Ball", Category::Special, 90, 15));
-    ludicolo->learn(make_shared<GroundMove>("Mud Slap", Category::Special, 20, 10));
-    ludicolo->learn(make_shared<FireMove>("Fire Punch", Category::Physical, 75, 15));
+    ludicolo->learn(make_shared<NormalMove>("Pound", Category::Special, 90, 15));
+    ludicolo->learn(make_shared<FightingMove>("Focus Blast", Category::Special, 90, 15));
+    ludicolo->learn(make_shared<PoisonMove>("Sludge Bomb", Category::Special, 20, 10));
+    ludicolo->learn(make_shared<FlyingMove>("Aerial Ace", Category::Physical, 75, 15));
 
     /*
     try {
@@ -34,8 +34,10 @@ int main() {
     unique_ptr<Pokemon> rotom_mow = make_unique<Species>("Rotom-Mow", Stats{50, 65, 107, 105, 107, 86});
     addType<Grass>(rotom_mow);
     addType<Electric>(rotom_mow);
-    rotom_mow->learn(make_shared<GrassMove>("Leaf Storm", Category::Special, 140, 15));
+    rotom_mow->learn(make_shared<PsychicMove>("Psychic", Category::Special, 140, 15));
     rotom_mow->learn(make_shared<IceMove>("Ice Beam", Category::Special, 90, 15));
+    rotom_mow->learn(make_shared<GroundMove>("Earthquake", Category::Special, 90, 15));
+    rotom_mow->learn(make_shared<RockMove>("Stone Edge", Category::Special, 90, 15));
 
     // Use a random attack
     ludicolo->attack(*rotom_mow);

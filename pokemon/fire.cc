@@ -25,3 +25,7 @@ void Fire::hitBy(IceMove& gm, const double mult) {
 void Fire::hitBy(BugMove& gm, const double mult) {
     p->hitBy(gm, mult * 0.5);
 }
+
+void Fire::hitBy(RockMove& gm, const double mult) {
+    p->hitBy(gm, mult * 2);
+}
