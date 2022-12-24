@@ -17,7 +17,7 @@ CXXFLAGS = -std=c++20 -g -MMD -Wall -Wextra -pedantic -fsanitize=undefined,addre
 #   VARIABLES & SEARCH PATHS   #
 ################################
 SOURCES = main.cc pokemon.cc species.cc pokdec.cc move.cc \
-		  fire.cc water.cc grass.cc electric.cc normal.cc \
+		  fire.cc water.cc grass.cc electric.cc normal.cc ice.cc \
 		  stats.cc \
 		  route.cc pokedex.cc
 OBJECTS = ${SOURCES:.cc=.o}

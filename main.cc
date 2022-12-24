@@ -2,6 +2,7 @@
 #include "grass.h"
 #include "fire.h"
 #include "normal.h"
+#include "ice.h"
 #include "electric.h"
 #include "species.h"
 #include "types.h"
@@ -19,6 +20,7 @@ int main() {
     unique_ptr<Pokemon> ludicolo = make_unique<Species>("Ludicolo", Stats{80, 70, 70, 90, 100, 70});
     addType<Grass>(ludicolo);
     addType<Water>(ludicolo);
+    addType<Ice>(ludicolo);
     ludicolo->learn(make_shared<GhostMove>("Shadow Ball", Category::Special, 90, 15));
     ludicolo->learn(make_shared<DragonMove>("Draco Meteor", Category::Special, 90, 15));
     ludicolo->learn(make_shared<WaterMove>("Water Pulse", Category::Special, 20, 10));
