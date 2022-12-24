@@ -25,3 +25,7 @@ void Grass::hitBy(GroundMove& wm, const double mult) {
 void Grass::hitBy(IceMove& wm, const double mult) {
     p->hitBy(wm, mult * 2);
 }
+
+void Grass::hitBy(PoisonMove& wm, const double mult) {
+    p->hitBy(wm, mult * 2);
+}

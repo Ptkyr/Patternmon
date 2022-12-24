@@ -67,3 +67,7 @@ void Species::hitBy(IceMove& wm, const double mult) {
 void Species::hitBy(FightingMove& wm, const double mult) {
     helpHit(wm, mult);
 }
+
+void Species::hitBy(PoisonMove& wm, const double mult) {
+    helpHit(wm, mult);
+}

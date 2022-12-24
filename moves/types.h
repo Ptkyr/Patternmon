@@ -93,4 +93,15 @@ public:
     }
 };
 
+class PoisonMove: public Move {
+public:
+    PoisonMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    void hit(Pokemon& p) override {
+        p.hitBy(*this);
+    }
+    std::string getName() const override {
+        return POISON + name + RESET;
+    }
+};
+
 #endif
