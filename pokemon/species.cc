@@ -23,16 +23,19 @@ void Species::calcDamage(Move& m, const double mult) {
 }
 
 void Species::printHit(const double mult) const {
-    if (mult > 1) {
-        std::cout << "It's super effective!" << std::endl;
+    if (mult == 0) {
+        std::cout << "It didn't affect " << name << "..." << std::endl;
     } else if (mult < 1) {
         std::cout << "It's not very effective..." << std::endl;
+    } else if (mult > 1) {
+        std::cout << "It's super effective!" << std::endl;
     }
 }
 
 void Species::helpHit(Move& m, const double mult) {
     if (hp <= 0) return;
     printHit(mult);
+    if (mult == 0) return;
     calcDamage(m, mult);
 }
 

@@ -18,7 +18,7 @@ const std::string ROCK     = "\033[38;5;178m";
 const std::string GHOST    = "\033[38;5;54m";
 const std::string DRAGON   = "\033[38;5;20m";
 const std::string DARK     = "\033[38;5;238m";
-const std::string STEEL    = "\033[38;5;7m";
+const std::string STEEL    = "\033[38;5;189m";
 const std::string FAIRY    = "\033[38;5;213m";
 
 // Colours for stats

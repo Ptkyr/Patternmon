@@ -3,7 +3,7 @@ CXXFLAGS = -std=c++14 -g -MMD -Wall -Wextra -pedantic -fsanitize=undefined,addre
 		   -I pokemon -I routes -I info -I dex -I moves
 EXEC = ps
 OBJECTS = main.o pokemon.o species.o pokdec.o move.o \
-		  fire.o water.o grass.o electric.o \
+		  fire.o water.o grass.o electric.o normal.o \
 		  stats.o \
 		  route.o pokedex.o
 DEPENDS = ${OBJECTS:.o=.d}
