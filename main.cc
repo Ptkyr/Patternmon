@@ -18,7 +18,7 @@ int main() {
     unique_ptr<Pokemon> ludicolo = make_unique<Species>("Ludicolo", Stats{80, 70, 70, 90, 100, 70});
     addType<Grass>(ludicolo);
     addType<Water>(ludicolo);
-    ludicolo->learn(make_shared<NormalMove>("Pound", Category::Special, 90, 15));
+    ludicolo->learn(make_shared<GhostMove>("Shadow Ball", Category::Special, 90, 15));
     ludicolo->learn(make_shared<FightingMove>("Focus Blast", Category::Special, 90, 15));
     ludicolo->learn(make_shared<PoisonMove>("Sludge Bomb", Category::Special, 20, 10));
     ludicolo->learn(make_shared<FlyingMove>("Aerial Ace", Category::Physical, 75, 15));

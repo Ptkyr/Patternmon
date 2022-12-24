@@ -87,3 +87,7 @@ void Species::hitBy(BugMove& wm, const double mult) {
 void Species::hitBy(RockMove& wm, const double mult) {
     helpHit(wm, mult);
 }
+
+void Species::hitBy(GhostMove& wm, const double mult) {
+    helpHit(wm, mult);
+}

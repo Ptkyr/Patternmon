@@ -148,4 +148,15 @@ public:
     }
 };
 
+class GhostMove: public Move {
+public:
+    GhostMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    void hit(Pokemon& p) override {
+        p.hitBy(*this);
+    }
+    std::string getName() const override {
+        return GHOST + name + RESET;
+    }
+};
+
 #endif
