@@ -41,3 +41,7 @@ void PokemonDecorator::hitBy(FightingMove& gm, const double mult) {
 void PokemonDecorator::hitBy(PoisonMove& gm, const double mult) {
     p->hitBy(gm, mult);
 }
+
+void PokemonDecorator::hitBy(FlyingMove& gm, const double mult) {
+    p->hitBy(gm, mult);
+}

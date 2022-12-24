@@ -5,6 +5,17 @@
 #include "termcodes.h"
 #include <iostream>
 
+class NormalMove: public Move {
+public:
+    NormalMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    void hit(Pokemon& p) override {
+        p.hitBy(*this);
+    }
+    std::string getName() const override {
+        return NORMAL + name + RESET;
+    }
+};
+
 class WaterMove: public Move {
 public:
     WaterMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
@@ -49,28 +60,6 @@ public:
     }
 };
 
-class GroundMove: public Move {
-public:
-    GroundMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
-    void hit(Pokemon& p) override {
-        p.hitBy(*this);
-    }
-    std::string getName() const override {
-        return GROUND + name + RESET;
-    }
-};
-
-class NormalMove: public Move {
-public:
-    NormalMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
-    void hit(Pokemon& p) override {
-        p.hitBy(*this);
-    }
-    std::string getName() const override {
-        return NORMAL + name + RESET;
-    }
-};
-
 class IceMove: public Move {
 public:
     IceMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
@@ -101,6 +90,28 @@ public:
     }
     std::string getName() const override {
         return POISON + name + RESET;
+    }
+};
+
+class GroundMove: public Move {
+public:
+    GroundMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    void hit(Pokemon& p) override {
+        p.hitBy(*this);
+    }
+    std::string getName() const override {
+        return GROUND + name + RESET;
+    }
+};
+
+class FlyingMove: public Move {
+public:
+    FlyingMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    void hit(Pokemon& p) override {
+        p.hitBy(*this);
+    }
+    std::string getName() const override {
+        return FLYING + name + RESET;
     }
 };
 

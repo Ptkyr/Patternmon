@@ -11,9 +11,10 @@ public:
     void hitBy(FireMove& fm, const double mult = 1) override;
     void hitBy(GrassMove& gm, const double mult = 1) override;
     void hitBy(ElectricMove& gm, const double mult = 1) override;
-    void hitBy(GroundMove& gm, const double mult = 1) override;
     void hitBy(IceMove& gm, const double mult = 1) override;
     void hitBy(PoisonMove& gm, const double mult = 1) override;
+    void hitBy(GroundMove& gm, const double mult = 1) override;
+    void hitBy(FlyingMove& gm, const double mult = 1) override;
 };
 
 #endif

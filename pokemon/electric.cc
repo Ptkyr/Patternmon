@@ -9,3 +9,7 @@ void Electric::hitBy(ElectricMove& wm, const double mult) {
 void Electric::hitBy(GroundMove& wm, const double mult) {
     p->hitBy(wm, mult * 2);
 }
+
+void Electric::hitBy(FlyingMove& wm, const double mult) {
+    p->hitBy(wm, mult * 0.5);
+}

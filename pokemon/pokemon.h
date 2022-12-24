@@ -49,6 +49,7 @@ public:
     virtual void hitBy(FightingMove& gm, const double mult = 1) = 0;
     virtual void hitBy(PoisonMove& gm, const double mult = 1) = 0;
     virtual void hitBy(GroundMove& gm, const double mult = 1) = 0;
+    virtual void hitBy(FlyingMove& gm, const double mult = 1) = 0;
 
     void learn(std::shared_ptr<Move> m);
     void attack(Pokemon& p) const;
