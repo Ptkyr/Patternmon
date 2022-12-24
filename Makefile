@@ -19,6 +19,7 @@ CXXFLAGS = -std=c++20 -g -MMD -Wall -Wextra -pedantic -fsanitize=undefined,addre
 SOURCES = main.cc pokemon.cc species.cc pokdec.cc move.cc \
 		  fire.cc water.cc grass.cc electric.cc normal.cc ice.cc \
 		  fighting.cc poison.cc ground.cc flying.cc psychic.cc bug.cc \
+		  rock.cc \
 		  stats.cc \
 		  route.cc \
 		  pokedex.cc deximpl.cc basicdex.cc colourdex.cc
