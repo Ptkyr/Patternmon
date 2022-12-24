@@ -2,11 +2,11 @@
 
 Water::Water(Pokemon* p): PokemonDecorator(p) {}
 
-void Water::hitBy(WaterMove& wm, const double mult) {
+void Water::hitBy(FireMove& wm, const double mult) {
     p->hitBy(wm, mult * 0.5);
 }
 
-void Water::hitBy(FireMove& wm, const double mult) {
+void Water::hitBy(WaterMove& wm, const double mult) {
     p->hitBy(wm, mult * 0.5);
 }
 
