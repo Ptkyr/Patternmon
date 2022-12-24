@@ -20,7 +20,7 @@ int main() {
     addType<Water>(ludicolo);
     ludicolo->learn(make_shared<GhostMove>("Shadow Ball", Category::Special, 90, 15));
     ludicolo->learn(make_shared<DragonMove>("Draco Meteor", Category::Special, 90, 15));
-    ludicolo->learn(make_shared<PoisonMove>("Sludge Bomb", Category::Special, 20, 10));
+    ludicolo->learn(make_shared<DarkMove>("Dark Pulse", Category::Special, 20, 10));
     ludicolo->learn(make_shared<FlyingMove>("Aerial Ace", Category::Physical, 75, 15));
 
     /*

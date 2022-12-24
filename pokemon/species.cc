@@ -95,3 +95,7 @@ void Species::hitBy(GhostMove& wm, const double mult) {
 void Species::hitBy(DragonMove& wm, const double mult) {
     helpHit(wm, mult);
 }
+
+void Species::hitBy(DarkMove& wm, const double mult) {
+    helpHit(wm, mult);
+}
