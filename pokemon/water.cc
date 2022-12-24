@@ -21,3 +21,7 @@ void Water::hitBy(ElectricMove& wm, const double mult) {
 void Water::hitBy(IceMove& wm, const double mult) {
     p->hitBy(wm, mult * 0.5);
 }
+
+void Water::hitBy(SteelMove& gm, const double mult) {
+    p->hitBy(gm, mult * 0.5);
+}

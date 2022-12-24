@@ -29,3 +29,7 @@ void Fire::hitBy(BugMove& gm, const double mult) {
 void Fire::hitBy(RockMove& gm, const double mult) {
     p->hitBy(gm, mult * 2);
 }
+
+void Fire::hitBy(SteelMove& gm, const double mult) {
+    p->hitBy(gm, mult * 0.5);
+}
