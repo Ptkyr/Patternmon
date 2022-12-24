@@ -115,4 +115,15 @@ public:
     }
 };
 
+class PsychicMove: public Move {
+public:
+    PsychicMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    void hit(Pokemon& p) override {
+        p.hitBy(*this);
+    }
+    std::string getName() const override {
+        return PSYCHIC + name + RESET;
+    }
+};
+
 #endif

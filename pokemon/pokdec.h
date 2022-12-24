@@ -21,6 +21,7 @@ public:
     void hitBy(PoisonMove& gm, const double mult = 1) override;
     void hitBy(GroundMove& gm, const double mult = 1) override;
     void hitBy(FlyingMove& gm, const double mult = 1) override;
+    void hitBy(PsychicMove& gm, const double mult = 1) override;
 };
 
 
