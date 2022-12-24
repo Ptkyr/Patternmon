@@ -79,3 +79,7 @@ void Species::hitBy(FlyingMove& wm, const double mult) {
 void Species::hitBy(PsychicMove& wm, const double mult) {
     helpHit(wm, mult);
 }
+
+void Species::hitBy(BugMove& wm, const double mult) {
+    helpHit(wm, mult);
+}

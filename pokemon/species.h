@@ -23,6 +23,7 @@ public:
     void hitBy(GroundMove& gm, const double mult = 1) override;
     void hitBy(FlyingMove& gm, const double mult = 1) override;
     void hitBy(PsychicMove& gm, const double mult = 1) override;
+    void hitBy(BugMove& gm, const double mult = 1) override;
 };
 
 #endif

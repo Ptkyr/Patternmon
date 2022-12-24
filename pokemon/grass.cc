@@ -33,3 +33,7 @@ void Grass::hitBy(PoisonMove& wm, const double mult) {
 void Grass::hitBy(FlyingMove& wm, const double mult) {
     p->hitBy(wm, mult * 2);
 }
+
+void Grass::hitBy(BugMove& wm, const double mult) {
+    p->hitBy(wm, mult * 2);
+}

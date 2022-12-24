@@ -49,3 +49,7 @@ void PokemonDecorator::hitBy(FlyingMove& gm, const double mult) {
 void PokemonDecorator::hitBy(PsychicMove& gm, const double mult) {
     p->hitBy(gm, mult);
 }
+
+void PokemonDecorator::hitBy(BugMove& gm, const double mult) {
+    p->hitBy(gm, mult);
+}
