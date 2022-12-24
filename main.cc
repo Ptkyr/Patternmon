@@ -35,11 +35,13 @@ int main() {
     addType<Grass>(rotom_mow);
     addType<Electric>(rotom_mow);
     rotom_mow->learn(make_shared<GrassMove>("Leaf Storm", Category::Special, 140, 15));
+    rotom_mow->learn(make_shared<IceMove>("Ice Beam", Category::Special, 90, 15));
 
     // Use a random attack
     ludicolo->attack(*rotom_mow);
     rotom_mow->attack(*ludicolo);
 
+    /*
     unique_ptr<Route> route = make_unique<ColdStorage>();
 
     try {
@@ -58,4 +60,5 @@ int main() {
         // Should run out of PP at some point
         std::cerr << me.what() << std::endl;
     }
+    */
 }

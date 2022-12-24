@@ -17,6 +17,7 @@ public:
     void hitBy(ElectricMove& gm, const double mult = 1) override;
     void hitBy(GroundMove& gm, const double mult = 1) override;
     void hitBy(NormalMove& gm, const double mult = 1) override;
+    void hitBy(IceMove& gm, const double mult = 1) override;
 };
 
 

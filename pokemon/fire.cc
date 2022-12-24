@@ -17,3 +17,7 @@ void Fire::hitBy(GrassMove& wm, const double mult) {
 void Fire::hitBy(GroundMove& gm, const double mult) {
     p->hitBy(gm, mult * 2);
 }
+
+void Fire::hitBy(IceMove& gm, const double mult) {
+    p->hitBy(gm, mult * 0.5);
+}

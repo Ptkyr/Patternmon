@@ -21,3 +21,7 @@ void Grass::hitBy(ElectricMove& wm, const double mult) {
 void Grass::hitBy(GroundMove& wm, const double mult) {
     p->hitBy(wm, mult * 0.5);
 }
+
+void Grass::hitBy(IceMove& wm, const double mult) {
+    p->hitBy(wm, mult * 2);
+}

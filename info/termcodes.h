@@ -8,6 +8,7 @@ const std::string GRASS    = "\033[38;5;40m";
 const std::string ELECTRIC = "\033[38;5;220m";
 const std::string GROUND   = "\033[38;5;179m";
 const std::string NORMAL   = "\033[38;5;7m";
+const std::string ICE      = "\033[38;5;117m";
 
 // Colours for stats
 const std::string RED         = "\033[38;5;124m";

@@ -59,3 +59,7 @@ void Species::hitBy(GroundMove& wm, const double mult) {
 void Species::hitBy(NormalMove& wm, const double mult) {
     helpHit(wm, mult);
 }
+
+void Species::hitBy(IceMove& wm, const double mult) {
+    helpHit(wm, mult);
+}
