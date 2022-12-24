@@ -8,6 +8,7 @@
 #include "poison.h"
 #include "ground.h"
 #include "flying.h"
+#include "psychic.h"
 #include "species.h"
 #include "types.h"
 #include "move.h"
@@ -29,6 +30,7 @@ int main() {
     addType<Poison>(ludicolo);
     addType<Ground>(ludicolo);
     addType<Flying>(ludicolo);
+    addType<Psychic>(ludicolo);
     ludicolo->learn(make_shared<GhostMove>("Shadow Ball", Category::Special, 90, 15));
     ludicolo->learn(make_shared<DragonMove>("Draco Meteor", Category::Special, 90, 15));
     ludicolo->learn(make_shared<WaterMove>("Water Pulse", Category::Special, 20, 10));
