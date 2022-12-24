@@ -26,6 +26,7 @@ public:
     void hitBy(BugMove& gm, const double mult = 1) override;
     void hitBy(RockMove& gm, const double mult = 1) override;
     void hitBy(GhostMove& gm, const double mult = 1) override;
+    void hitBy(DragonMove& gm, const double mult = 1) override;
 };
 
 #endif

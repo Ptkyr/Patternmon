@@ -159,4 +159,15 @@ public:
     }
 };
 
+class DragonMove: public Move {
+public:
+    DragonMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    void hit(Pokemon& p) override {
+        p.hitBy(*this);
+    }
+    std::string getName() const override {
+        return DRAGON + name + RESET;
+    }
+};
+
 #endif
