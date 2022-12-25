@@ -13,6 +13,7 @@
 #include "rock.h"
 #include "ghost.h"
 #include "dragon.h"
+#include "dark.h"
 #include "species.h"
 #include "types.h"
 #include "move.h"
@@ -39,6 +40,7 @@ int main() {
     addType<Rock>(ludicolo);
     addType<Ghost>(ludicolo);
     addType<Dragon>(ludicolo);
+    addType<Dark>(ludicolo);
     ludicolo->learn(make_shared<GhostMove>("Shadow Ball", Category::Special, 90, 15));
     ludicolo->learn(make_shared<DragonMove>("Draco Meteor", Category::Special, 90, 15));
     ludicolo->learn(make_shared<WaterMove>("Water Pulse", Category::Special, 20, 10));
