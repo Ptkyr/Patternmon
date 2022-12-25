@@ -4,19 +4,19 @@
 
 void ColourDex::colourNumber(const int& n) const {
     if (n < 50) {
-        out << RED;
+        out << Termcode::RED;
     } else if (n < 70) {
-        out << ORANGE;
+        out << Termcode::ORANGE;
     } else if (n < 100) {
-        out << YELLOW;
+        out << Termcode::YELLOW;
     } else if (n < 120) {
-        out << YELLOWGREEN;
+        out << Termcode::YELLOWGREEN;
     } else if (n < 160) {
-        out << GREEN;
+        out << Termcode::GREEN;
     } else {
-        out << TEAL;
+        out << Termcode::TEAL;
     }
-    out << n << RESET;
+    out << n << Termcode::RESET;
 }
 
 void ColourDex::print() const {

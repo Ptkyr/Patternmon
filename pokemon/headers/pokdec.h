@@ -34,5 +34,4 @@ public:
     void hitBy(FairyMove& gm, const double mult = 1) override;
 };
 
-
 #endif

@@ -2,7 +2,7 @@
 #include "types.h"
 #include <utility>
 
-PokemonDecorator::PokemonDecorator(Pokemon* p): Pokemon{*p}, p{p} {}
+PokemonDecorator::PokemonDecorator(Pokemon* p): p{p} {}
 
 PokemonDecorator::~PokemonDecorator() = default;
 

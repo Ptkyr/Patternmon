@@ -12,7 +12,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return NORMAL + name + RESET;
+        return Termcode::NORMAL + name + Termcode::RESET;
     }
 };
 
@@ -23,7 +23,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return WATER + name + RESET;
+        return Termcode::WATER + name + Termcode::RESET;
     }
 };
 
@@ -34,7 +34,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return FIRE + name + RESET;
+        return Termcode::FIRE + name + Termcode::RESET;
     }
 };
 
@@ -45,7 +45,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return GRASS + name + RESET;
+        return Termcode::GRASS + name + Termcode::RESET;
     }
 };
 
@@ -56,7 +56,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return ELECTRIC + name + RESET;
+        return Termcode::ELECTRIC + name + Termcode::RESET;
     }
 };
 
@@ -67,7 +67,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return ICE + name + RESET;
+        return Termcode::ICE + name + Termcode::RESET;
     }
 };
 
@@ -78,7 +78,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return FIGHTING + name + RESET;
+        return Termcode::FIGHTING + name + Termcode::RESET;
     }
 };
 
@@ -89,7 +89,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return POISON + name + RESET;
+        return Termcode::POISON + name + Termcode::RESET;
     }
 };
 
@@ -100,7 +100,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return GROUND + name + RESET;
+        return Termcode::GROUND + name + Termcode::RESET;
     }
 };
 
@@ -111,7 +111,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return FLYING + name + RESET;
+        return Termcode::FLYING + name + Termcode::RESET;
     }
 };
 
@@ -122,7 +122,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return PSYCHIC + name + RESET;
+        return Termcode::PSYCHIC + name + Termcode::RESET;
     }
 };
 
@@ -133,7 +133,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return BUG + name + RESET;
+        return Termcode::BUG + name + Termcode::RESET;
     }
 };
 
@@ -144,7 +144,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return ROCK + name + RESET;
+        return Termcode::ROCK + name + Termcode::RESET;
     }
 };
 
@@ -155,7 +155,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return GHOST + name + RESET;
+        return Termcode::GHOST + name + Termcode::RESET;
     }
 };
 
@@ -166,7 +166,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return DRAGON + name + RESET;
+        return Termcode::DRAGON + name + Termcode::RESET;
     }
 };
 
@@ -177,7 +177,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return DARK + name + RESET;
+        return Termcode::DARK + name + Termcode::RESET;
     }
 };
 
@@ -188,7 +188,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return STEEL + name + RESET;
+        return Termcode::STEEL + name + Termcode::RESET;
     }
 };
 
@@ -199,7 +199,7 @@ public:
         p.hitBy(*this);
     }
     std::string getName() const override {
-        return FAIRY + name + RESET;
+        return Termcode::FAIRY + name + Termcode::RESET;
     }
 };
 

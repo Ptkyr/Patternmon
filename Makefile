@@ -11,7 +11,7 @@ DEP_DIR = ${OBJ_DIR}/dep
 ################################
 CXX = g++-11
 CXXFLAGS = -std=c++20 -g -MMD -Wall -Wextra -pedantic -fsanitize=undefined,address \
-		   -I pokemon -I routes -I info -I dex -I moves
+		   -I pokemon -I pokemon/headers -I routes -I info -I dex -I moves
 
 ################################
 #   VARIABLES & SEARCH PATHS   #
@@ -28,7 +28,7 @@ DEPENDS = ${SOURCES:%.cc=${DEP_DIR}/%.d}
 EXEC = ps
 
 vpath %.cc pokemon
-vpath %.h pokemon
+vpath %.h pokemon/headers
 vpath %.cc routes
 vpath %.h routes
 vpath %.cc info

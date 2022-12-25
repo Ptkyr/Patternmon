@@ -45,9 +45,7 @@ int main() {
     */
 
     unique_ptr<Pokemon> rotom_mow = make_unique<Species>("Rotom-Mow", Stats{50, 65, 107, 105, 107, 86});
-    addType<Grass>(rotom_mow);
-    addType<Electric>(rotom_mow);
-    addType<Normal>(rotom_mow);
+    addType<Grass, Electric, Normal>(rotom_mow);
     rotom_mow->learn(make_shared<PsychicMove>("Psychic", Category::Special, 140, 15));
     rotom_mow->learn(make_shared<FairyMove>("Dazzling Gleam", Category::Special, 90, 15));
     rotom_mow->learn(make_shared<IceMove>("Ice Beam", Category::Special, 90, 15));
