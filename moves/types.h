@@ -5,7 +5,61 @@
 #include "termcodes.h"
 #include "pokemon.h"
 #include <memory>
+#include <map>
 #include <string>
+
+enum Types {
+    NormalType,
+    FireType,
+    WaterType,
+    GrassType,
+    ElectricType,
+    IceType,
+    FightingType,
+    PoisonType,
+    GroundType,
+    FlyingType,
+    PsychicType,
+    BugType,
+    RockType,
+    GhostType,
+    DragonType,
+    DarkType,
+    SteelType,
+    FairyType
+};
+
+const std::map<Types, std::string> colours {
+    {NormalType, Termcode::NORMAL},
+    {FireType, Termcode::FIRE},
+    {WaterType, Termcode::WATER},
+    {GrassType, Termcode::GRASS},
+    {ElectricType, Termcode::ELECTRIC},
+    {IceType, Termcode::ICE},
+    {FightingType, Termcode::FIGHTING},
+    {PoisonType, Termcode::POISON},
+    {GroundType, Termcode::GROUND},
+    {FlyingType, Termcode::FLYING},
+    {PsychicType, Termcode::PSYCHIC},
+    {BugType, Termcode::BUG},
+    {RockType, Termcode::ROCK},
+    {GhostType, Termcode::GHOST},
+    {DragonType, Termcode::DRAGON},
+    {DarkType, Termcode::DARK},
+    {SteelType, Termcode::STEEL},
+    {FairyType, Termcode::FAIRY}
+};
+
+template<Types T>
+class MoveType: public Move {
+    MoveType(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
+    void hit(Pokemon& p) override {
+        p.hitBy(*this);
+    }
+    std::string getName() const override {
+        return colours.at(T) + Termcode::RESET;
+    }
+};
 
 class NormalMove: public Move {
 public:
