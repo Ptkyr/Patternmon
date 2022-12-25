@@ -20,7 +20,7 @@ SOURCES = main.cc species.cc pokdec.cc move.cc \
 		  fire.cc water.cc grass.cc electric.cc normal.cc ice.cc \
 		  fighting.cc poison.cc ground.cc flying.cc psychic.cc bug.cc \
 		  rock.cc ghost.cc dragon.cc dark.cc steel.cc fairy.cc \
-		  stats.cc \
+		  stats.cc types.cc \
 		  route.cc \
 		  pokedex.cc deximpl.cc basicdex.cc colourdex.cc \
 		  trainer.cc player.cc cynthia.cc

@@ -3,13 +3,9 @@
 
 #include "move.h"
 #include "termcodes.h"
-#include "exceptions.h"
-#include <algorithm>
-#include <cctype>
-#include <iostream>
+#include "pokemon.h"
+#include <memory>
 #include <string>
-#include <sstream>
-#include <fstream>
 
 class NormalMove: public Move {
 public:
@@ -222,39 +218,6 @@ void addType(auto&& p) {
     (f.template operator()<Ts>(), ...);
 }
 
-template<typename T>
-std::unique_ptr<Move> makeMove(const std::string name) {
-    std::ifstream input{"./info/movedata.csv"};
-    std::string tmp;
-    while (std::getline(input, tmp)) {
-        std::istringstream iss{tmp};
-        std::string s;
-        std::getline(iss, s, ',');
-        std::getline(iss, s, ',');
-        // Make formatting compatible with csv file
-        auto conv = [](const char c){
-            if (c == ' ') return '-';
-            return static_cast<char>(std::tolower(c));
-        };
-        std::string copy = name;
-        std::transform(copy.begin(), copy.end(), copy.begin(), conv);
-        if (s != copy) continue;
-        std::vector<int> entries;
-        for (int i = 0; i < 8; ++i) {
-            getline(iss, s, ',');
-            // Miserable hack to account for never-miss moves
-            if (s == "" && i == 4) s = "101";
-            entries.emplace_back(stoi(s));
-        }
-        const int bp = entries[2];
-        const int pp = entries[3];
-        const int acc = entries[4];
-        const int move_kind = entries[7];
-        Category c = Category::Physical;
-        if (move_kind == 3) c = Category::Special;
-        return std::make_unique<T>(name, c, bp, acc, pp);
-    }
-    throw SpawnError{};
-}
+std::unique_ptr<Move> makeMove(const std::string name);
 
 #endif

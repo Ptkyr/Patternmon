@@ -24,26 +24,26 @@
 Cynthia::Cynthia(): Trainer("Cynthia") {
     Pokedex dex;
     auto spiritomb = dex.spawn("Spiritomb");
-    spiritomb->learn(makeMove<GhostMove>("Shadow Ball"));
+    spiritomb->learn(makeMove("Shadow Ball"));
     add(spiritomb);
 
     auto garchomp = dex.spawn("Garchomp");
-    garchomp->learn(makeMove<GroundMove>("Earthquake"));
+    garchomp->learn(makeMove("Earthquake"));
     add(garchomp);
 
     auto eelektross = dex.spawn("Eelektross");
-    eelektross->learn(makeMove<FireMove>("Flamethrower"));
+    eelektross->learn(makeMove("Flamethrower"));
     add(eelektross);
 
     auto milotic = dex.spawn("Milotic");
-    milotic->learn(makeMove<WaterMove>("Hydro Pump"));
+    milotic->learn(makeMove("Hydro Pump"));
     add(milotic);
 
     auto braviary = dex.spawn("Braviary");
-    braviary->learn(makeMove<FlyingMove>("Brave Bird"));
+    braviary->learn(makeMove("Brave Bird"));
     add(braviary);
 
     auto lucario = dex.spawn("Lucario");
-    lucario->learn(makeMove<FightingMove>("Aura Sphere"));
+    lucario->learn(makeMove("Aura Sphere"));
     add(lucario);
 }

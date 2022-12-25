@@ -31,8 +31,8 @@ using std::make_unique;
 using std::make_shared;
 
 int main() {
-    auto hydro = makeMove<WaterMove>("Hydro Pump");
-    auto eq = makeMove<GroundMove>("Earthquake");
+    auto hydro = makeMove("Hydro Pump");
+    auto eq = makeMove("Earthquake");
     Pokedex dex;
     dex.prettyDex();
     Player pete{"Pete"};
@@ -40,17 +40,17 @@ int main() {
 
     auto ludicolo = dex.spawn("Ludicolo");
     addType<Normal, Flying, Ground>(ludicolo);
-    ludicolo->learn(makeMove<WaterMove>("Hydro Pump"));
-    ludicolo->learn(makeMove<DragonMove>("Draco Meteor"));
-    ludicolo->learn(makeMove<GhostMove>("Shadow Ball"));
-    ludicolo->learn(makeMove<FlyingMove>("Acrobatics"));
+    ludicolo->learn(makeMove("Hydro Pump"));
+    ludicolo->learn(makeMove("Draco Meteor"));
+    ludicolo->learn(makeMove("Shadow Ball"));
+    ludicolo->learn(makeMove("Acrobatics"));
 
     auto magnezone = dex.spawn("Magnezone");
     addType<Normal, Grass, Ghost>(magnezone);
-    magnezone->learn(makeMove<GrassMove>("Leaf Storm"));
-    magnezone->learn(makeMove<ElectricMove>("Thunderbolt"));
-    magnezone->learn(makeMove<IceMove>("Ice Beam"));
-    magnezone->learn(makeMove<SteelMove>("Flash Cannon"));
+    magnezone->learn(makeMove("Leaf Storm"));
+    magnezone->learn(makeMove("Thunderbolt"));
+    magnezone->learn(makeMove("Ice Beam"));
+    magnezone->learn(makeMove("Flash Cannon"));
 
     pete.add(ludicolo);
     pete.add(magnezone);
