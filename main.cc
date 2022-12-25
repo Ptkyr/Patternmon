@@ -57,22 +57,20 @@ int main() {
 
     unique_ptr<Route> route = make_unique<ColdStorage>();
 
-    /*
     try {
-        for (int i = 0; i < 30; ++i) {
-            unique_ptr<Pokemon> encounter{route->spawn()};
-            rotom_mow->attack(*encounter);
+        for (int i = 0; i < 6; ++i) {
+            auto encounter = route->spawn();
+            ludicolo->attack(*encounter);
         }
         // Switch to a different Factory,
         //  different Pokemon will spawn
         route = make_unique<Route5>();
-        for (int i = 0; i < 30; ++i) {
-            unique_ptr<Pokemon> encounter{route->spawn()};
+        for (int i = 0; i < 6; ++i) {
+            auto encounter = route->spawn();
             rotom_mow->attack(*encounter);
         }
     } catch (MoveExcept& me) {
         // Should run out of PP at some point
         std::cerr << me.what() << std::endl;
     }
-    */
 }

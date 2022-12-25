@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <string>
+#include <memory>
 
 class Pokemon;
 
@@ -13,7 +14,7 @@ public:
     Route(std::vector<std::string> s, std::vector<double> c);
     virtual ~Route() = 0;
 
-    Pokemon* spawn();
+    std::unique_ptr<Pokemon> spawn();
 };
 
 #endif

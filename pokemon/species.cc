@@ -8,6 +8,8 @@
 Species::Species(const std::string& n, Stats s):
         name{n}, stats{s}, moves{}, hp{2 * stats.hp + level + 10}, max_hp{this->hp} {}
 
+Species::~Species() = default;
+
 void Species::calcDamage(Move& m, const double mult) {
     double tmp = (2 * level / 5 + 2) * m.getBP() / 50;
     if (m.getPS() == Category::Physical) {

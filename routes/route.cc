@@ -11,17 +11,17 @@ Route::Route(std::vector<std::string> s, std::vector<double> c):
 
 Route::~Route() = default;
 
-Pokemon* Route::spawn() {
+std::unique_ptr<Pokemon> Route::spawn() {
     Pokedex dex;
     std::random_device rd;
     std::mt19937 gen{rd()};
     std::uniform_int_distribution<> dist{1, 100};
-    // generate a pseudo-random int between 0 and 100, inclusive
+    // generate a pseudo-random int between 1 and 100, inclusive
     const int index = dist(gen);
     int i = 0;
     for (const auto& chance: chances) {
         if (index <= chance) {
-            return new Species{spawns[i], dex.getStats(spawns[i])};
+            return make_unique<Species>(spawns[i], dex.getStats(spawns[i]));
         }
         ++i;
     }

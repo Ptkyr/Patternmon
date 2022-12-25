@@ -21,6 +21,7 @@ class Species: public Pokemon {
     void helpHit(Move& m, const double mult);
 public:
     Species(const std::string& name, Stats s);
+    ~Species();
 
     void learn(std::unique_ptr<Move> m) override;
     void attack(Pokemon& p) const override;
