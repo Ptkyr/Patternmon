@@ -15,12 +15,14 @@ protected:
     std::string name;
     const Category cat;
     const int bp;
+    const int acc;
     int pp;
 public:
-    Move(std::string n, Category c, int base, int pp);
+    Move(std::string n, Category c, int base, int acc, int pp);
     virtual ~Move() = 0;
 
     int getBP() const;
+    int getAcc() const;
     int getPP() const;
     Category getPS() const;
     virtual std::string getName() const;

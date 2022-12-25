@@ -16,8 +16,9 @@ class Species: public Pokemon {
     int hp;
     const int max_hp;
 
-    void calcDamage(Move& m, const double mult);
+    void accuracyCheck(const Move& m) const;
     void printHit(const double mult) const;
+    void calcDamage(Move& m, const double mult);
     void helpHit(Move& m, const double mult);
 public:
     Species(const std::string& name, Stats s);

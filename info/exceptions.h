@@ -12,6 +12,13 @@ public:
     virtual std::string what() const = 0;
 };
 
+class AttackMiss: public MoveExcept {
+public:
+    std::string what() const override {
+        return "But it failed!";
+    }
+};
+
 class FourMovesExcept: public MoveExcept {
 public:
     FourMovesExcept(std::string s): MoveExcept{s} {}

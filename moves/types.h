@@ -3,11 +3,17 @@
 
 #include "move.h"
 #include "termcodes.h"
+#include "exceptions.h"
+#include <algorithm>
+#include <cctype>
 #include <iostream>
+#include <string>
+#include <sstream>
+#include <fstream>
 
 class NormalMove: public Move {
 public:
-    NormalMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    NormalMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -18,7 +24,7 @@ public:
 
 class WaterMove: public Move {
 public:
-    WaterMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    WaterMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -29,7 +35,7 @@ public:
 
 class FireMove: public Move {
 public:
-    FireMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    FireMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -40,7 +46,7 @@ public:
 
 class GrassMove: public Move {
 public:
-    GrassMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    GrassMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -51,7 +57,7 @@ public:
 
 class ElectricMove: public Move {
 public:
-    ElectricMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    ElectricMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -62,7 +68,7 @@ public:
 
 class IceMove: public Move {
 public:
-    IceMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    IceMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -73,7 +79,7 @@ public:
 
 class FightingMove: public Move {
 public:
-    FightingMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    FightingMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -84,7 +90,7 @@ public:
 
 class PoisonMove: public Move {
 public:
-    PoisonMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    PoisonMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -95,7 +101,7 @@ public:
 
 class GroundMove: public Move {
 public:
-    GroundMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    GroundMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -106,7 +112,7 @@ public:
 
 class FlyingMove: public Move {
 public:
-    FlyingMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    FlyingMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -117,7 +123,7 @@ public:
 
 class PsychicMove: public Move {
 public:
-    PsychicMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    PsychicMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -128,7 +134,7 @@ public:
 
 class BugMove: public Move {
 public:
-    BugMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    BugMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -139,7 +145,7 @@ public:
 
 class RockMove: public Move {
 public:
-    RockMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    RockMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -150,7 +156,7 @@ public:
 
 class GhostMove: public Move {
 public:
-    GhostMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    GhostMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -161,7 +167,7 @@ public:
 
 class DragonMove: public Move {
 public:
-    DragonMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    DragonMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -172,7 +178,7 @@ public:
 
 class DarkMove: public Move {
 public:
-    DarkMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    DarkMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -183,7 +189,7 @@ public:
 
 class SteelMove: public Move {
 public:
-    SteelMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    SteelMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -194,7 +200,7 @@ public:
 
 class FairyMove: public Move {
 public:
-    FairyMove(std::string n, Category c, int bp, int pp) : Move(n, c, bp, pp) {}
+    FairyMove(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {}
     void hit(Pokemon& p) override {
         p.hitBy(*this);
     }
@@ -214,6 +220,41 @@ void addType(auto&& p) {
         addType<T>(p);
     };
     (f.template operator()<Ts>(), ...);
+}
+
+template<typename T>
+std::unique_ptr<Move> makeMove(const std::string name) {
+    std::ifstream input{"./info/movedata.csv"};
+    std::string tmp;
+    while (std::getline(input, tmp)) {
+        std::istringstream iss{tmp};
+        std::string s;
+        std::getline(iss, s, ',');
+        std::getline(iss, s, ',');
+        // Make formatting compatible with csv file
+        auto conv = [](const char c){
+            if (c == ' ') return '-';
+            return static_cast<char>(std::tolower(c));
+        };
+        std::string copy = name;
+        std::transform(copy.begin(), copy.end(), copy.begin(), conv);
+        if (s != copy) continue;
+        std::vector<int> entries;
+        for (int i = 0; i < 8; ++i) {
+            getline(iss, s, ',');
+            // Miserable hack to account for never-miss moves
+            if (s == "" && i == 4) s = "101";
+            entries.emplace_back(stoi(s));
+        }
+        const int bp = entries[2];
+        const int pp = entries[3];
+        const int acc = entries[4];
+        const int move_kind = entries[7];
+        Category c = Category::Physical;
+        if (move_kind == 3) c = Category::Special;
+        return std::make_unique<T>(name, c, bp, acc, pp);
+    }
+    throw SpawnError{};
 }
 
 #endif

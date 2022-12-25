@@ -61,8 +61,22 @@ void Species::attack(Pokemon& p) const {
     m->use();
 }
 
+void Species::accuracyCheck(const Move& m) const {
+    std::random_device rd;
+    std::mt19937 gen{rd()};
+    std::uniform_int_distribution<> dist{1, 100};
+    const int tmp = dist(gen);
+    if (m.getAcc() < tmp) throw AttackMiss{};
+}
+
 void Species::helpHit(Move& m, const double mult) {
     if (fainted()) return;
+    try {
+        accuracyCheck(m);
+    } catch (MoveExcept& me) {
+        std::cout << me.what() << std::endl;
+        return;
+    }
     printHit(mult);
     if (mult == 0) return;
     calcDamage(m, mult);

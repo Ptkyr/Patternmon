@@ -24,26 +24,26 @@
 Cynthia::Cynthia(): Trainer("Cynthia") {
     Pokedex dex;
     auto spiritomb = dex.spawn("Spiritomb");
-    spiritomb->learn(std::make_unique<GhostMove>("Shadow Ball", Category::Special, 80, 15));
+    spiritomb->learn(makeMove<GhostMove>("Shadow Ball"));
     add(spiritomb);
 
     auto garchomp = dex.spawn("Garchomp");
-    garchomp->learn(std::make_unique<GroundMove>("Earthquake", Category::Physical, 100, 15));
+    garchomp->learn(makeMove<GroundMove>("Earthquake"));
     add(garchomp);
 
     auto eelektross = dex.spawn("Eelektross");
-    eelektross->learn(std::make_unique<FireMove>("Flamethrower", Category::Special, 90, 15));
+    eelektross->learn(makeMove<FireMove>("Flamethrower"));
     add(eelektross);
 
     auto milotic = dex.spawn("Milotic");
-    milotic->learn(std::make_unique<WaterMove>("Hydro Pump", Category::Special, 110, 15));
+    milotic->learn(makeMove<WaterMove>("Hydro Pump"));
     add(milotic);
 
     auto braviary = dex.spawn("Braviary");
-    braviary->learn(std::make_unique<FlyingMove>("Brave Bird", Category::Physical, 120, 15));
+    braviary->learn(makeMove<FlyingMove>("Brave Bird"));
     add(braviary);
 
     auto lucario = dex.spawn("Lucario");
-    lucario->learn(std::make_unique<FightingMove>("Aura Sphere", Category::Special, 80, 20));
+    lucario->learn(makeMove<FightingMove>("Aura Sphere"));
     add(lucario);
 }
