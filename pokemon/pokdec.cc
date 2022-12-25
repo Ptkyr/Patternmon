@@ -6,8 +6,8 @@ PokemonDecorator::PokemonDecorator(Pokemon* p): p{p} {}
 
 PokemonDecorator::~PokemonDecorator() = default;
 
-void PokemonDecorator::learn(std::shared_ptr<Move> m) {
-    p->learn(m);
+void PokemonDecorator::learn(std::unique_ptr<Move> m) {
+    p->learn(std::move(m));
 }
 
 void PokemonDecorator::attack(Pokemon& p) const {

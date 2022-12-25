@@ -11,7 +11,7 @@ class Move;
 class Species: public Pokemon {
     std::string name;
     Stats stats;
-    std::vector<std::shared_ptr<Move>> moves;
+    std::vector<std::unique_ptr<Move>> moves;
     int level = 100;
     int hp;
     const int max_hp;
@@ -22,7 +22,7 @@ class Species: public Pokemon {
 public:
     Species(const std::string& name, Stats s);
 
-    void learn(std::shared_ptr<Move> m) override;
+    void learn(std::unique_ptr<Move> m) override;
     void attack(Pokemon& p) const override;
 
     void hitBy(NormalMove& gm, const double mult = 1) override;

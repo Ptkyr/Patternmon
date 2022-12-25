@@ -51,10 +51,10 @@ ${OBJ_DIR}/%.o: %.cc ${DEP_DIR}
 # make objects and dependencies
 	${CXX} -c ${CXXFLAGS} -MF ${DEP_DIR}/${<F:.cc=.d} $< -o $@
 
-${DEP_DIR} : ${OBJ_DIR}
+${DEP_DIR}: ${OBJ_DIR}
 	@mkdir -p ${DEP_DIR}
 
-${OBJ_DIR} :
+${OBJ_DIR}:
 	@mkdir -p ${OBJ_DIR}
 
 .PHONY : clean

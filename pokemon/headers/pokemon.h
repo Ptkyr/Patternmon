@@ -44,7 +44,7 @@ public:
     virtual void hitBy(SteelMove& gm, const double mult = 1) = 0;
     virtual void hitBy(FairyMove& gm, const double mult = 1) = 0;
 
-    virtual void learn(std::shared_ptr<Move> m) = 0;
+    virtual void learn(std::unique_ptr<Move> m) = 0;
     virtual void attack(Pokemon& p) const = 0;
 
     virtual ~Pokemon() = default;

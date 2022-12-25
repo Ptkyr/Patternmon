@@ -35,12 +35,12 @@ void Species::printHit(const double mult) const {
     }
 }
 
-void Species::learn(std::shared_ptr<Move> m) {
+void Species::learn(std::unique_ptr<Move> m) {
     if (moves.size() == 4) {
         throw FourMovesExcept{name};
     }
-    moves.emplace_back(m);
     std::cout << name << " learned " << m->getName() << "!" << std::endl;
+    moves.emplace_back(std::move(m));
 }
 
 void Species::attack(Pokemon& p) const {

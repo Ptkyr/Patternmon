@@ -11,7 +11,7 @@ public:
     PokemonDecorator(Pokemon* p);
     virtual ~PokemonDecorator() = 0;
 
-    void learn(std::shared_ptr<Move> m) override;
+    void learn(std::unique_ptr<Move> m) override;
     void attack(Pokemon& p) const override;
 
     void hitBy(NormalMove& gm, const double mult = 1) override;
