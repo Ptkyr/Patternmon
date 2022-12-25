@@ -31,39 +31,34 @@ using std::make_unique;
 using std::make_shared;
 
 int main() {
+    Pokedex dex;
+    dex.prettyDex();
     Player pete{"Pete"};
     Cynthia cynthia;
-    unique_ptr<Pokemon> ludicolo = make_unique<Species>("Ludicolo", Stats{80, 70, 70, 90, 100, 70});
-    addType<Grass, Water, Normal, Flying, Ground>(ludicolo);
+
+    auto ludicolo = dex.spawn("Ludicolo");
+    addType<Normal, Flying, Ground>(ludicolo);
     ludicolo->learn(make_unique<GhostMove>("Shadow Ball", Category::Special, 80, 15));
     ludicolo->learn(make_unique<DragonMove>("Draco Meteor", Category::Special, 140, 15));
     ludicolo->learn(make_unique<WaterMove>("Surf", Category::Special, 90, 10));
     ludicolo->learn(make_unique<FlyingMove>("Acrobatics", Category::Physical, 110, 15));
 
-    try {
-        ludicolo->learn(make_unique<FireMove>("Flamethrower", Category::Special, 80, 15));
-    } catch (MoveExcept& me) {
-        std::cerr << me.what() << std::endl;
-    }
+    auto magnezone = dex.spawn("Magnezone");
+    addType<Normal, Grass, Ghost>(magnezone);
+    magnezone->learn(make_unique<GrassMove>("Leaf Storm", Category::Special, 140, 15));
+    magnezone->learn(make_unique<ElectricMove>("Thunderbolt", Category::Special, 90, 15));
+    magnezone->learn(make_unique<IceMove>("Ice Beam", Category::Special, 90, 15));
+    magnezone->learn(make_unique<SteelMove>("Iron Head", Category::Special, 90, 15));
 
-    unique_ptr<Pokemon> rotom_mow = make_unique<Species>("Rotom-Mow", Stats{50, 65, 107, 105, 107, 86});
-    addType<Grass, Electric, Normal, Steel, Ghost>(rotom_mow);
-    rotom_mow->learn(make_unique<GrassMove>("Leaf Storm", Category::Special, 140, 15));
-    rotom_mow->learn(make_unique<ElectricMove>("Thunderbolt", Category::Special, 90, 15));
-    rotom_mow->learn(make_unique<IceMove>("Ice Beam", Category::Special, 90, 15));
-    rotom_mow->learn(make_unique<SteelMove>("Iron Head", Category::Special, 90, 15));
+    pete.add(ludicolo);
+    pete.add(magnezone);
 
-//    pete.add(ludicolo);
-  //  pete.add(rotom_mow);
-
-
-    //pete.battle(cynthia);
+    pete.battle(cynthia);
 
     /*
     // Use a random attack
-    ludicolo->attack(*rotom_mow);
-    rotom_mow->attack(*ludicolo);
-    */
+    ludicolo->attack(*magnezone);
+    magnezone->attack(*ludicolo);
 
     unique_ptr<Route> route = make_unique<ColdStorage>();
 
@@ -77,10 +72,11 @@ int main() {
         route = make_unique<Route5>();
         for (int i = 0; i < 6; ++i) {
             auto encounter = route->spawn();
-            rotom_mow->attack(*encounter);
+            magnezone->attack(*encounter);
         }
     } catch (MoveExcept& me) {
         // Should run out of PP at some point
         std::cerr << me.what() << std::endl;
     }
+    */
 }

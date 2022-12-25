@@ -7,7 +7,7 @@
 
 Pokedex::Pokedex(): pimpl{std::make_unique<BasicDex>()} {}
 
-Pokedex::~Pokedex() = default;
+Pokedex::~Pokedex() {}
 
 void Pokedex::prettyDex() {
     pimpl = std::make_unique<ColourDex>();
