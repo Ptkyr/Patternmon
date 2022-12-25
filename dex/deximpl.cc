@@ -20,6 +20,7 @@
 #include "steel.h"
 #include "fairy.h"
 #include "species.h"
+#include "types.h"
 #include <fstream>
 #include <sstream>
 #include <functional>
