@@ -29,33 +29,16 @@ using std::make_unique;
 using std::make_shared;
 
 int main() {
-    unique_ptr<Pokemon> wtf = make_unique<Species>("Abomination", Stats{80, 70, 70, 90, 100, 70});
-    addType<Normal>(wtf);
-    addType<Fire>(wtf);
-    addType<Water>(wtf);
-    addType<Grass>(wtf);
-    addType<Electric>(wtf);
-    addType<Ice>(wtf);
-    addType<Fighting>(wtf);
-    addType<Poison>(wtf);
-    addType<Ground>(wtf);
-    addType<Flying>(wtf);
-    addType<Psychic>(wtf);
-    addType<Bug>(wtf);
-    addType<Rock>(wtf);
-    addType<Ghost>(wtf);
-    addType<Dragon>(wtf);
-    addType<Dark>(wtf);
-    addType<Steel>(wtf);
-    addType<Fairy>(wtf);
-    wtf->learn(make_shared<GhostMove>("Shadow Ball", Category::Special, 90, 15));
-    wtf->learn(make_shared<DragonMove>("Draco Meteor", Category::Special, 90, 15));
-    wtf->learn(make_shared<WaterMove>("Water Pulse", Category::Special, 20, 10));
-    wtf->learn(make_shared<FlyingMove>("Aerial Ace", Category::Physical, 75, 15));
+    unique_ptr<Pokemon> ludicolo = make_unique<Species>("Ludicolo", Stats{80, 70, 70, 90, 100, 70});
+    addType<Grass, Water, Dark>(ludicolo);
+    ludicolo->learn(make_shared<GhostMove>("Shadow Ball", Category::Special, 90, 15));
+    ludicolo->learn(make_shared<DragonMove>("Draco Meteor", Category::Special, 90, 15));
+    ludicolo->learn(make_shared<WaterMove>("Water Pulse", Category::Special, 20, 10));
+    ludicolo->learn(make_shared<FlyingMove>("Aerial Ace", Category::Physical, 75, 15));
 
     /*
     try {
-        wtf->learn(make_shared<WaterMove>("Scald", Category::Special, 80, 15));
+        ludicolo->learn(make_shared<WaterMove>("Scald", Category::Special, 80, 15));
     } catch (MoveExcept& me) {
         std::cerr << me.what() << std::endl;
     }
@@ -71,8 +54,8 @@ int main() {
     rotom_mow->learn(make_shared<SteelMove>("Iron Head", Category::Special, 90, 15));
 
     // Use a random attack
-    wtf->attack(*rotom_mow);
-    rotom_mow->attack(*wtf);
+    ludicolo->attack(*rotom_mow);
+    rotom_mow->attack(*ludicolo);
 
     unique_ptr<Route> route = make_unique<ColdStorage>();
 

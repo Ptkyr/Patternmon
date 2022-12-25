@@ -68,4 +68,12 @@ void addType(std::unique_ptr<Pokemon>& p) {
     p = std::make_unique<T>(p.release());
 }
 
+template<typename... Ts>
+void addType(auto&& p) {
+    auto f = [&]<typename T> {
+        addType<T>(p);
+    };
+    (f.template operator()<Ts>(), ...);
+}
+
 #endif
