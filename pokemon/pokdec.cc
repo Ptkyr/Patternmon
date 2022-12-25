@@ -14,6 +14,10 @@ void PokemonDecorator::attack(Pokemon& p) const {
     this->p->attack(p);
 }
 
+bool PokemonDecorator::fainted() const {
+    return p->fainted();
+}
+
 void PokemonDecorator::hitBy(WaterMove& wm, const double mult) {
     p->hitBy(wm, mult);
 }

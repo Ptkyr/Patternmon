@@ -46,6 +46,7 @@ public:
 
     virtual void learn(std::unique_ptr<Move> m) = 0;
     virtual void attack(Pokemon& p) const = 0;
+    virtual bool fainted() const = 0;
 
     virtual ~Pokemon() = default;
 };

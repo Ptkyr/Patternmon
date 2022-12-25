@@ -43,4 +43,11 @@ public:
     }
 };
 
+class MaxTeamSize {
+public:
+    std::string what() const {
+        return "Party size cannot exceed six.";
+    }
+};
+
 #endif

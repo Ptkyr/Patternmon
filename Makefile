@@ -11,7 +11,7 @@ DEP_DIR = ${OBJ_DIR}/dep
 ################################
 CXX = g++-11
 CXXFLAGS = -std=c++20 -g -MMD -Wall -Wextra -pedantic -fsanitize=undefined,address \
-		   -I pokemon -I pokemon/headers -I routes -I info -I dex -I moves
+		   -I pokemon -I pokemon/headers -I routes -I info -I dex -I moves -I trainer
 
 ################################
 #   VARIABLES & SEARCH PATHS   #
@@ -22,7 +22,8 @@ SOURCES = main.cc species.cc pokdec.cc move.cc \
 		  rock.cc ghost.cc dragon.cc dark.cc steel.cc fairy.cc \
 		  stats.cc \
 		  route.cc \
-		  pokedex.cc deximpl.cc basicdex.cc colourdex.cc
+		  pokedex.cc deximpl.cc basicdex.cc colourdex.cc \
+		  trainer.cc player.cc cynthia.cc
 OBJECTS = ${SOURCES:.cc=.o}
 DEPENDS = ${SOURCES:%.cc=${DEP_DIR}/%.d}
 EXEC = ps
@@ -37,6 +38,8 @@ vpath %.cc dex
 vpath %.h dex
 vpath %.cc moves
 vpath %.h moves
+vpath %.cc trainer
+vpath %.h trainer
 
 ################################
 #             RULES            #

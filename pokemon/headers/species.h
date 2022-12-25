@@ -26,6 +26,8 @@ public:
     void learn(std::unique_ptr<Move> m) override;
     void attack(Pokemon& p) const override;
 
+    bool fainted() const override;
+
     void hitBy(NormalMove& gm, const double mult = 1) override;
     void hitBy(FireMove& fm, const double mult = 1) override;
     void hitBy(WaterMove& wm, const double mult = 1) override;

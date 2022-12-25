@@ -10,6 +10,10 @@ Species::Species(const std::string& n, Stats s):
 
 Species::~Species() = default;
 
+bool Species::fainted() const {
+    return (hp <= 0);
+}
+
 void Species::calcDamage(Move& m, const double mult) {
     double tmp = (2 * level / 5 + 2) * m.getBP() / 50;
     if (m.getPS() == Category::Physical) {
@@ -58,7 +62,7 @@ void Species::attack(Pokemon& p) const {
 }
 
 void Species::helpHit(Move& m, const double mult) {
-    if (hp <= 0) return;
+    if (fainted()) return;
     printHit(mult);
     if (mult == 0) return;
     calcDamage(m, mult);

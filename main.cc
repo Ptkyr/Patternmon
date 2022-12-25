@@ -23,12 +23,16 @@
 #include "coldstorage.h"
 #include "pokedex.h"
 #include "exceptions.h"
+#include "cynthia.h"
+#include "player.h"
 
 using std::unique_ptr;
 using std::make_unique;
 using std::make_shared;
 
 int main() {
+    Player pete{"Pete"};
+    Cynthia cynthia;
     unique_ptr<Pokemon> ludicolo = make_unique<Species>("Ludicolo", Stats{80, 70, 70, 90, 100, 70});
     addType<Grass, Water, Dark>(ludicolo);
     ludicolo->learn(make_unique<GhostMove>("Shadow Ball", Category::Special, 90, 15));
@@ -36,13 +40,11 @@ int main() {
     ludicolo->learn(make_unique<WaterMove>("Water Pulse", Category::Special, 20, 10));
     ludicolo->learn(make_unique<FlyingMove>("Aerial Ace", Category::Physical, 75, 15));
 
-    /*
     try {
-        ludicolo->learn(make_unique<WaterMove>("Scald", Category::Special, 80, 15));
+        ludicolo->learn(make_unique<FireMove>("Flamethrower", Category::Special, 80, 15));
     } catch (MoveExcept& me) {
         std::cerr << me.what() << std::endl;
     }
-    */
 
     unique_ptr<Pokemon> rotom_mow = make_unique<Species>("Rotom-Mow", Stats{50, 65, 107, 105, 107, 86});
     addType<Grass, Electric, Normal>(rotom_mow);
@@ -51,6 +53,12 @@ int main() {
     rotom_mow->learn(make_unique<IceMove>("Ice Beam", Category::Special, 90, 15));
     rotom_mow->learn(make_unique<SteelMove>("Iron Head", Category::Special, 90, 15));
 
+    pete.add(ludicolo);
+    pete.add(rotom_mow);
+
+    pete.battle(cynthia);
+
+    /*
     // Use a random attack
     ludicolo->attack(*rotom_mow);
     rotom_mow->attack(*ludicolo);
@@ -73,4 +81,5 @@ int main() {
         // Should run out of PP at some point
         std::cerr << me.what() << std::endl;
     }
+    */
 }
