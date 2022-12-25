@@ -2,15 +2,28 @@
 #define __SPECIES_H__
 
 #include "pokemon.h"
+#include "stats.h"
 #include <string>
+#include <vector>
+
 class Move;
 
 class Species: public Pokemon {
+    std::string name;
+    Stats stats;
+    std::vector<std::shared_ptr<Move>> moves;
+    int level = 100;
+    int hp;
+    const int max_hp;
+
     void calcDamage(Move& m, const double mult);
     void printHit(const double mult) const;
     void helpHit(Move& m, const double mult);
 public:
-    Species(std::string name, Stats s);
+    Species(const std::string& name, Stats s);
+
+    void learn(std::shared_ptr<Move> m) override;
+    void attack(Pokemon& p) const override;
 
     void hitBy(NormalMove& gm, const double mult = 1) override;
     void hitBy(FireMove& fm, const double mult = 1) override;

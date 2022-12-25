@@ -6,6 +6,14 @@ PokemonDecorator::PokemonDecorator(Pokemon* p): Pokemon{*p}, p{p} {}
 
 PokemonDecorator::~PokemonDecorator() = default;
 
+void PokemonDecorator::learn(std::shared_ptr<Move> m) {
+    p->learn(m);
+}
+
+void PokemonDecorator::attack(Pokemon& p) const {
+    this->p->attack(p);
+}
+
 void PokemonDecorator::hitBy(WaterMove& wm, const double mult) {
     p->hitBy(wm, mult);
 }

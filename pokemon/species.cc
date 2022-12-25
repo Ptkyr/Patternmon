@@ -1,9 +1,12 @@
 #include "species.h"
 #include "move.h"
 #include "types.h"
+#include "exceptions.h"
 #include <iostream>
+#include <random>
 
-Species::Species(std::string name, Stats s): Pokemon(name, s) {}
+Species::Species(const std::string& n, Stats s):
+        name{n}, stats{s}, moves{}, hp{2 * stats.hp + level + 10}, max_hp{this->hp} {}
 
 void Species::calcDamage(Move& m, const double mult) {
     double tmp = (2 * level / 5 + 2) * m.getBP() / 50;
@@ -30,6 +33,26 @@ void Species::printHit(const double mult) const {
     } else if (mult > 1) {
         std::cout << "It's super effective!" << std::endl;
     }
+}
+
+void Species::learn(std::shared_ptr<Move> m) {
+    if (moves.size() == 4) {
+        throw FourMovesExcept{name};
+    }
+    moves.emplace_back(m);
+    std::cout << name << " learned " << m->getName() << "!" << std::endl;
+}
+
+void Species::attack(Pokemon& p) const {
+    if (moves.size() == 0) throw NoMovesExcept{name};
+    std::random_device rd;
+    std::mt19937 gen{rd()};
+    std::uniform_int_distribution<> dist{0, static_cast<int>(moves.size() - 1)};
+    Move* m = moves[dist(gen)].get();
+    std::cout << name << " used " << m->getName() << "!" << std::endl;
+    if (m->getPP() <= 0) throw NoPPExcept{};
+    m->hit(p);
+    m->use();
 }
 
 void Species::helpHit(Move& m, const double mult) {
