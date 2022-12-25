@@ -38,7 +38,7 @@ void Trainer::battle(Trainer& foe) {
             try {
                 opp = foe.team.at(opp_index).get();
             } catch (std::out_of_range& oor) {
-                std::cerr << "Opposing trainer has lost!" << std::endl;
+                std::cerr << name << " defeated " << foe.name << "!" << std::endl;
                 return;
             }
         }

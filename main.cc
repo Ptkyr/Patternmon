@@ -34,7 +34,7 @@ int main() {
     Player pete{"Pete"};
     Cynthia cynthia;
     unique_ptr<Pokemon> ludicolo = make_unique<Species>("Ludicolo", Stats{80, 70, 70, 90, 100, 70});
-    addType<Grass, Water, Dark>(ludicolo);
+    addType<Grass, Water, Normal, Flying, Ground>(ludicolo);
     ludicolo->learn(make_unique<GhostMove>("Shadow Ball", Category::Special, 90, 15));
     ludicolo->learn(make_unique<DragonMove>("Draco Meteor", Category::Special, 90, 15));
     ludicolo->learn(make_unique<WaterMove>("Water Pulse", Category::Special, 20, 10));
@@ -47,9 +47,9 @@ int main() {
     }
 
     unique_ptr<Pokemon> rotom_mow = make_unique<Species>("Rotom-Mow", Stats{50, 65, 107, 105, 107, 86});
-    addType<Grass, Electric, Normal>(rotom_mow);
-    rotom_mow->learn(make_unique<PsychicMove>("Psychic", Category::Special, 140, 15));
-    rotom_mow->learn(make_unique<FairyMove>("Dazzling Gleam", Category::Special, 90, 15));
+    addType<Grass, Electric, Normal, Steel, Ghost>(rotom_mow);
+    rotom_mow->learn(make_unique<GrassMove>("Leaf Storm", Category::Special, 140, 15));
+    rotom_mow->learn(make_unique<ElectricMove>("Thunderbolt", Category::Special, 90, 15));
     rotom_mow->learn(make_unique<IceMove>("Ice Beam", Category::Special, 90, 15));
     rotom_mow->learn(make_unique<SteelMove>("Iron Head", Category::Special, 90, 15));
 
