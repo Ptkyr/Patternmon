@@ -8,7 +8,8 @@ class ColourDex: public DexImpl {
     std::ostream& out = std::cout;
     void colourNumber(const int& n) const;
   public:
-    void print() const override;
+    void print(const std::string& name) const override;
+    ~ColourDex();
 };
 
 #endif

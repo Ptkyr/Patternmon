@@ -2,6 +2,8 @@
 #include "deximpl.h"
 #include "basicdex.h"
 #include "colourdex.h"
+// this should not be necessary
+#include "pokemon.h"
 
 Pokedex::Pokedex(): pimpl{std::make_unique<BasicDex>()} {}
 
@@ -11,11 +13,10 @@ void Pokedex::prettyDex() {
     pimpl = std::make_unique<ColourDex>();
 }
 
-const Stats& Pokedex::getStats(std::string name) const {
-    return pimpl->getStats(name);
+std::unique_ptr<Pokemon> Pokedex::spawn(const std::string& name) const {
+    return pimpl->spawn(name);
 }
 
-std::ostream& operator<<(std::ostream& out, const Pokedex& pd) {
-    pd.pimpl->print();
-    return out;
+void Pokedex::print(const std::string& name) const {
+    pimpl->print(name);
 }

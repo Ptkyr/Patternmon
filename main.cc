@@ -35,10 +35,10 @@ int main() {
     Cynthia cynthia;
     unique_ptr<Pokemon> ludicolo = make_unique<Species>("Ludicolo", Stats{80, 70, 70, 90, 100, 70});
     addType<Grass, Water, Normal, Flying, Ground>(ludicolo);
-    ludicolo->learn(make_unique<GhostMove>("Shadow Ball", Category::Special, 90, 15));
-    ludicolo->learn(make_unique<DragonMove>("Draco Meteor", Category::Special, 90, 15));
-    ludicolo->learn(make_unique<WaterMove>("Water Pulse", Category::Special, 20, 10));
-    ludicolo->learn(make_unique<FlyingMove>("Aerial Ace", Category::Physical, 75, 15));
+    ludicolo->learn(make_unique<GhostMove>("Shadow Ball", Category::Special, 80, 15));
+    ludicolo->learn(make_unique<DragonMove>("Draco Meteor", Category::Special, 140, 15));
+    ludicolo->learn(make_unique<WaterMove>("Surf", Category::Special, 90, 10));
+    ludicolo->learn(make_unique<FlyingMove>("Acrobatics", Category::Physical, 110, 15));
 
     try {
         ludicolo->learn(make_unique<FireMove>("Flamethrower", Category::Special, 80, 15));
@@ -53,15 +53,17 @@ int main() {
     rotom_mow->learn(make_unique<IceMove>("Ice Beam", Category::Special, 90, 15));
     rotom_mow->learn(make_unique<SteelMove>("Iron Head", Category::Special, 90, 15));
 
-    pete.add(ludicolo);
-    pete.add(rotom_mow);
+//    pete.add(ludicolo);
+  //  pete.add(rotom_mow);
 
-    pete.battle(cynthia);
+
+    //pete.battle(cynthia);
 
     /*
     // Use a random attack
     ludicolo->attack(*rotom_mow);
     rotom_mow->attack(*ludicolo);
+    */
 
     unique_ptr<Route> route = make_unique<ColdStorage>();
 
@@ -81,5 +83,4 @@ int main() {
         // Should run out of PP at some point
         std::cerr << me.what() << std::endl;
     }
-    */
 }

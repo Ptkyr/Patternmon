@@ -7,7 +7,8 @@
 class BasicDex: public DexImpl {
     std::ostream& out = std::cout;
   public:
-    void print() const override;
+    void print(const std::string& name) const override;
+    ~BasicDex();
 };
 
 #endif

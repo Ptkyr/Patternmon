@@ -1,7 +1,7 @@
 #include <iostream>
 #include <memory>
 
-class Stats;
+class Pokemon;
 class DexImpl;
 
 class Pokedex {
@@ -11,6 +11,6 @@ class Pokedex {
     ~Pokedex();
 
     void prettyDex();
-    const Stats& getStats(std::string name) const;
-    friend std::ostream& operator<<(std::ostream& out, const Pokedex& pd);
+    std::unique_ptr<Pokemon> spawn(const std::string& name) const;
+    void print(const std::string& name) const;
 };

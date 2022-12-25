@@ -21,7 +21,7 @@ std::unique_ptr<Pokemon> Route::spawn() {
     int i = 0;
     for (const auto& chance: chances) {
         if (index <= chance) {
-            return make_unique<Species>(spawns[i], dex.getStats(spawns[i]));
+            return dex.spawn(spawns[i]);
         }
         ++i;
     }
