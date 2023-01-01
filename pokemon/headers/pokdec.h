@@ -4,6 +4,10 @@
 #include "pokemon.h"
 #include <memory>
 
+extern const double IMMUNITY;
+extern const double NVERYEFF;
+extern const double SUPEREFF;
+
 class PokemonDecorator: public Pokemon {
 protected:
     std::unique_ptr<Pokemon> p;

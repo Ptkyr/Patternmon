@@ -3,25 +3,25 @@
 Fairy::Fairy(Pokemon* p): PokemonDecorator(p) {}
 
 void Fairy::hitBy(FightingMove& wm, const double mult) {
-    p->hitBy(wm, mult * 0.5);
+    p->hitBy(wm, mult * NVERYEFF);
 }
 
 void Fairy::hitBy(PoisonMove& wm, const double mult) {
-    p->hitBy(wm, mult * 2);
+    p->hitBy(wm, mult * SUPEREFF);
 }
 
 void Fairy::hitBy(BugMove& wm, const double mult) {
-    p->hitBy(wm, mult * 0.5);
+    p->hitBy(wm, mult * NVERYEFF);
 }
 
 void Fairy::hitBy(DragonMove& wm, const double mult) {
-    p->hitBy(wm, mult * 0);
+    p->hitBy(wm, mult * IMMUNITY);
 }
 
 void Fairy::hitBy(DarkMove& wm, const double mult) {
-    p->hitBy(wm, mult * 0.5);
+    p->hitBy(wm, mult * NVERYEFF);
 }
 
 void Fairy::hitBy(SteelMove& wm, const double mult) {
-    p->hitBy(wm, mult * 2);
+    p->hitBy(wm, mult * SUPEREFF);
 }

@@ -3,25 +3,25 @@
 Water::Water(Pokemon* p): PokemonDecorator(p) {}
 
 void Water::hitBy(FireMove& wm, const double mult) {
-    p->hitBy(wm, mult * 0.5);
+    p->hitBy(wm, mult * NVERYEFF);
 }
 
 void Water::hitBy(WaterMove& wm, const double mult) {
-    p->hitBy(wm, mult * 0.5);
+    p->hitBy(wm, mult * NVERYEFF);
 }
 
 void Water::hitBy(GrassMove& wm, const double mult) {
-    p->hitBy(wm, mult * 2);
+    p->hitBy(wm, mult * SUPEREFF);
 }
 
 void Water::hitBy(ElectricMove& wm, const double mult) {
-    p->hitBy(wm, mult * 2);
+    p->hitBy(wm, mult * SUPEREFF);
 }
 
 void Water::hitBy(IceMove& wm, const double mult) {
-    p->hitBy(wm, mult * 0.5);
+    p->hitBy(wm, mult * NVERYEFF);
 }
 
 void Water::hitBy(SteelMove& gm, const double mult) {
-    p->hitBy(gm, mult * 0.5);
+    p->hitBy(gm, mult * NVERYEFF);
 }

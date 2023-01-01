@@ -3,25 +3,25 @@
 Ghost::Ghost(Pokemon* p): PokemonDecorator(p) {}
 
 void Ghost::hitBy(NormalMove& wm, const double mult) {
-    p->hitBy(wm, mult * 0);
+    p->hitBy(wm, mult * IMMUNITY);
 }
 
 void Ghost::hitBy(FightingMove& wm, const double mult) {
-    p->hitBy(wm, mult * 0);
+    p->hitBy(wm, mult * IMMUNITY);
 }
 
 void Ghost::hitBy(PoisonMove& wm, const double mult) {
-    p->hitBy(wm, mult * 0.5);
+    p->hitBy(wm, mult * NVERYEFF);
 }
 
 void Ghost::hitBy(BugMove& wm, const double mult) {
-    p->hitBy(wm, mult * 0.5);
+    p->hitBy(wm, mult * NVERYEFF);
 }
 
 void Ghost::hitBy(GhostMove& wm, const double mult) {
-    p->hitBy(wm, mult * 2);
+    p->hitBy(wm, mult * SUPEREFF);
 }
 
 void Ghost::hitBy(DarkMove& wm, const double mult) {
-    p->hitBy(wm, mult * 2);
+    p->hitBy(wm, mult * SUPEREFF);
 }

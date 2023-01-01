@@ -2,6 +2,10 @@
 #include "move.h"
 #include <utility>
 
+const double IMMUNITY = 0;
+const double NVERYEFF = 0.5;
+const double SUPEREFF = 2;
+
 PokemonDecorator::PokemonDecorator(Pokemon* p): p{p} {}
 
 PokemonDecorator::~PokemonDecorator() = default;

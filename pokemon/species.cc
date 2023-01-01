@@ -45,7 +45,7 @@ void Species::learn(std::unique_ptr<Move> m) {
     if (moves.size() == 4) {
         throw FourMovesExcept{name};
     }
-    std::cout << name << " learned " << m->getName() << "!" << std::endl;
+    // std::cout << name << " learned " << m->getName() << "!" << std::endl;
     moves.emplace_back(std::move(m));
 }
 
