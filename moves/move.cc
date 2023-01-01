@@ -72,7 +72,8 @@ static const std::map<
 };
 
 std::unique_ptr<Move> makeMove(const std::string name) {
-    std::ifstream input{"./info/movedata.csv"};
+    const std::string infofrom = "movedata.csv";
+    std::ifstream input{"./info/" + infofrom};
     std::string tmp;
     while (std::getline(input, tmp)) {
         std::istringstream iss{tmp};
@@ -102,5 +103,5 @@ std::unique_ptr<Move> makeMove(const std::string name) {
         if (move_kind == 3) c = Category::Special;
         return typeConverter.at(entries[1])(name, c, bp, acc, pp);
     }
-    throw SpawnError{};
+    throw ReadError{infofrom};
 }

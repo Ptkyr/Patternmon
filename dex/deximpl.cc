@@ -52,7 +52,8 @@ static const std::map<std::string, std::function<void(std::unique_ptr<Pokemon>&)
 DexImpl::~DexImpl() = default;
 
 std::unique_ptr<Pokemon> DexImpl::spawn(const std::string& name) const {
-    std::ifstream input{"./info/pokedex.csv"};
+    const std::string infofrom = "pokedex.csv";
+    std::ifstream input{"./info/" + infofrom};
     std::string tmp;
     while (std::getline(input, tmp)) {
         std::istringstream iss{tmp};
@@ -73,5 +74,5 @@ std::unique_ptr<Pokemon> DexImpl::spawn(const std::string& name) const {
         decverter.at(entries[1])(ret);
         return ret;
     }
-    throw SpawnError{};
+    throw ReadError{infofrom};
 }

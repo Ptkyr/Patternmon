@@ -57,4 +57,12 @@ public:
     }
 };
 
+class ReadError {
+public:
+    std::string file;
+    std::string what() const {
+        return "Fatal error reading from " + file;
+    }
+};
+
 #endif
