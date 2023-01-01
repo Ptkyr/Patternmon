@@ -91,8 +91,11 @@ std::unique_ptr<Move> makeMove(const std::string name) {
         std::vector<int> entries;
         for (int i = 0; i < 8; ++i) {
             getline(iss, s, ',');
-            // Miserable hack to account for never-miss moves
-            if (s == "" && i == 4) s = "101";
+            // Miserable hacks
+            if (s == "") {
+                if (i == 2) s = "0"; // base power
+                if (i == 4) s = "101"; // never-miss
+            }
             entries.emplace_back(stoi(s));
         }
         const int bp = entries[2];

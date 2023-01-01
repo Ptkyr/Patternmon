@@ -1,0 +1,55 @@
+Garchomp @ Yache Berry  
+Ability: Rough Skin  
+EVs: 252 Atk / 4 SpD / 252 Spe  
+Jolly Nature  
+- Stealth Rock  
+- Outrage  
+- Earthquake  
+- Swords Dance  
+
+Jirachi @ Choice Scarf  
+Ability: Serene Grace  
+EVs: 160 HP / 164 Atk / 184 Spe  
+Jolly Nature  
+- Iron Head  
+- Ice Punch  
+- Healing Wish  
+- U-turn  
+
+Magnezone @ Air Balloon  
+Ability: Magnet Pull  
+EVs: 252 SpA / 4 SpD / 252 Spe  
+Modest Nature  
+IVs: 2 Atk / 30 SpA / 30 Spe  
+- Thunderbolt  
+- Hidden Power  
+- Sunny Day  
+- Magnet Rise  
+
+Starmie @ Air Balloon  
+Ability: Analytic  
+EVs: 252 SpA / 4 SpD / 252 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Hydro Pump  
+- Ice Beam  
+- Thunderbolt  
+- Rapid Spin  
+
+Dragonite @ Dragon Gem  
+Ability: Multiscale  
+EVs: 252 Atk / 4 Def / 252 Spe  
+Adamant Nature  
+- Dragon Dance  
+- Earthquake  
+- Outrage  
+- Extreme Speed  
+
+Cloyster @ Ice Gem  
+Ability: Skill Link  
+EVs: 80 HP / 224 Atk / 204 Spe  
+Adamant Nature  
+- Icicle Spear  
+- Rock Blast  
+- Ice Shard  
+- Shell Smash  

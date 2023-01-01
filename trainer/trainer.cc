@@ -59,3 +59,12 @@ void Trainer::battle(Trainer& foe) {
         }
     }
 }
+
+std::istream& operator>>(std::istream& in, Trainer& t) {
+    t.team.clear();
+    while (in) {
+        auto tmp = Pokemon::spawn(in);
+        t.add(tmp);
+    }
+    return in;
+}

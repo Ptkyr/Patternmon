@@ -2,6 +2,7 @@
 #define __POKEMON_H__
 
 #include <memory>
+#include <iostream>
 #include "infotypes.h"
 
 class Move;
@@ -48,6 +49,8 @@ public:
     virtual void learn(std::unique_ptr<Move> m) = 0;
     virtual void attack(Pokemon& p) const = 0;
     virtual bool fainted() const = 0;
+
+    static std::unique_ptr<Pokemon> spawn(std::istream& in);
 
     virtual ~Pokemon() = default;
 };
