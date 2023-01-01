@@ -1,6 +1,6 @@
 #include "ground.h"
 
-Ground::Ground(Pokemon* p): PokemonDecorator(p) {}
+Ground::Ground(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Ground::hitBy(WaterMove& wm, const double mult) {
     p->hitBy(wm, mult * SUPEREFF);

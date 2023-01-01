@@ -1,6 +1,6 @@
 #include "electric.h"
 
-Electric::Electric(Pokemon* p): PokemonDecorator(p) {}
+Electric::Electric(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Electric::hitBy(ElectricMove& wm, const double mult) {
     p->hitBy(wm, mult * NVERYEFF);

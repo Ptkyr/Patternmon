@@ -1,21 +1,8 @@
-################################
-#             PATHS            #
-################################
-# target location of intermediate .o files
-OBJ_DIR = ./obj
-# target location of dependency .d makefiles
-DEP_DIR = ${OBJ_DIR}/dep
-
-################################
-#       COMPILER & FLAGS       #
-################################
 CXX = g++-11
-CXXFLAGS = -std=c++20 -g -MMD -Wall -Wextra -pedantic -fsanitize=undefined,address \
+CXXFLAGS = -std=c++20 -g -MMD -Wall -Wextra -pedantic -Wshadow \
+		   -Wsign-conversion -Wformat=2 \
+		   -fno-omit-frame-pointer -fsanitize=undefined,address \
 		   -I pokemon -I pokemon/headers -I routes -I info -I dex -I moves -I trainer
-
-################################
-#   VARIABLES & SEARCH PATHS   #
-################################
 SOURCES = main.cc pokemon.cc species.cc pokdec.cc move.cc \
 		  fire.cc water.cc grass.cc electric.cc normal.cc ice.cc \
 		  fighting.cc poison.cc ground.cc flying.cc psychic.cc bug.cc \
@@ -25,6 +12,8 @@ SOURCES = main.cc pokemon.cc species.cc pokdec.cc move.cc \
 		  pokedex.cc deximpl.cc basicdex.cc colourdex.cc \
 		  trainer.cc player.cc cynthia.cc
 OBJECTS = ${SOURCES:.cc=.o}
+OBJ_DIR = ./obj
+DEP_DIR = ${OBJ_DIR}/dep
 DEPENDS = ${SOURCES:%.cc=${DEP_DIR}/%.d}
 EXEC = ps
 
@@ -41,9 +30,7 @@ vpath %.h moves
 vpath %.cc trainer
 vpath %.h trainer
 
-################################
-#             RULES            #
-################################
+################# RULES ##################
 ${EXEC}: ${OBJECTS:%=${OBJ_DIR}/%}
 # make executable using objects, $^ refers to dependencies, vpath %.o
 	${CXX} ${CXXFLAGS} $^ -o ${EXEC}

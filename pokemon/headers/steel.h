@@ -5,7 +5,7 @@
 
 class Steel: public PokemonDecorator {
 public:
-    Steel(Pokemon* p);
+    Steel(Pokemon* ptr);
 
     void hitBy(NormalMove& fm, const double mult = 1) override;
     void hitBy(FireMove& fm, const double mult = 1) override;

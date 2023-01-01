@@ -5,7 +5,7 @@
 
 class Grass: public PokemonDecorator {
 public:
-    Grass(Pokemon* p);
+    Grass(Pokemon* ptr);
 
     void hitBy(FireMove& fm, const double mult = 1) override;
     void hitBy(WaterMove& wm, const double mult = 1) override;

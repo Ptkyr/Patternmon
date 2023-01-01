@@ -5,7 +5,7 @@
 
 class Poison: public PokemonDecorator {
 public:
-    Poison(Pokemon* p);
+    Poison(Pokemon* ptr);
 
     void hitBy(GrassMove& fm, const double mult = 1) override;
     void hitBy(FightingMove& fm, const double mult = 1) override;

@@ -9,8 +9,8 @@
 #define MKTYPEDECL(T) \
 class T: public Move { \
 public: \
-    T(std::string n, Category c, int bp, int acc, int pp); \
-    void hit(Pokemon& p) override; \
+    T(std::string s, Category c, int b, int a, int p); \
+    void hit(Pokemon& poke) override; \
     std::string getName() const override; \
 }
 

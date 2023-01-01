@@ -1,6 +1,6 @@
 #include "dark.h"
 
-Dark::Dark(Pokemon* p): PokemonDecorator(p) {}
+Dark::Dark(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Dark::hitBy(FightingMove& wm, const double mult) {
     p->hitBy(wm, mult * SUPEREFF);

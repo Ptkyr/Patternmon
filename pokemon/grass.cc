@@ -1,6 +1,6 @@
 #include "grass.h"
 
-Grass::Grass(Pokemon* p): PokemonDecorator(p) {}
+Grass::Grass(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Grass::hitBy(FireMove& wm, const double mult) {
     p->hitBy(wm, mult * SUPEREFF);

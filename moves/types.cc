@@ -26,10 +26,10 @@ static const std::map<std::string, std::string> colours {
 };
 
 #define MKTYPESPEC(T) \
-T::T(std::string n, Category c, int bp, int acc, int pp) : Move(n, c, bp, acc, pp) {} \
+T::T(std::string s, Category c, int b, int a, int p) : Move(s, c, b, a, p) {} \
 \
-void T::hit(Pokemon& p) { \
-    p.hitBy(*this); \
+void T::hit(Pokemon& poke) { \
+    poke.hitBy(*this); \
 } \
 \
 std::string T::getName() const { \

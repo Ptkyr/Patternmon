@@ -6,7 +6,7 @@ const double IMMUNITY = 0;
 const double NVERYEFF = 0.5;
 const double SUPEREFF = 2;
 
-PokemonDecorator::PokemonDecorator(Pokemon* p): p{p} {}
+PokemonDecorator::PokemonDecorator(Pokemon* ptr): p{ptr} {}
 
 PokemonDecorator::~PokemonDecorator() = default;
 

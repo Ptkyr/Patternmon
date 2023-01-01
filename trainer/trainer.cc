@@ -23,8 +23,8 @@ void Trainer::add(std::unique_ptr<Pokemon>& p) {
 void Trainer::battle(Trainer& foe) {
     std::cout << "Battle between " << name << " and ";
     std::cout << foe.name << " has begun!" << std::endl;
-    int cur_index = 0;
-    int opp_index = 0;
+    size_t cur_index = 0;
+    size_t opp_index = 0;
     Pokemon* cur = team[0].get();
     Pokemon* opp = foe.team[0].get();
     while (true) {

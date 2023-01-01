@@ -17,7 +17,7 @@ void BasicDex::print(const std::string& name) const {
             entries.emplace_back(std::move(s));
         }
         out << name << " has the following stats:" << std::endl;
-        for (int i = 0; i < 6; ++i) {
+        for (size_t i = 0; i < 6; ++i) {
             out << "     " << std::setw(7) << (statNames[i] + ": ") << entries[i + 3] << std::endl;
         }
     }

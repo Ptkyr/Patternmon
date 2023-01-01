@@ -5,7 +5,7 @@
 
 class Fighting: public PokemonDecorator {
 public:
-    Fighting(Pokemon* p);
+    Fighting(Pokemon* ptr);
 
     void hitBy(FlyingMove& fm, const double mult = 1) override;
     void hitBy(PsychicMove& fm, const double mult = 1) override;

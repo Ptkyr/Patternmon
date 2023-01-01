@@ -19,7 +19,7 @@ protected:
     const int acc;
     int pp;
 public:
-    Move(std::string n, Category c, int base, int acc, int pp);
+    Move(std::string s, Category c, int b, int a, int p);
     virtual ~Move() = 0;
 
     int getBP() const;

@@ -1,6 +1,6 @@
 #include "dragon.h"
 
-Dragon::Dragon(Pokemon* p): PokemonDecorator(p) {}
+Dragon::Dragon(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Dragon::hitBy(FireMove& wm, const double mult) {
     p->hitBy(wm, mult * NVERYEFF);

@@ -5,7 +5,7 @@
 
 class Normal: public PokemonDecorator {
 public:
-    Normal(Pokemon* p);
+    Normal(Pokemon* ptr);
 
     void hitBy(FightingMove& wm, const double mult = 1) override;
     void hitBy(GhostMove& wm, const double mult = 1) override;

@@ -5,7 +5,7 @@
 
 class Rock: public PokemonDecorator {
 public:
-    Rock(Pokemon* p);
+    Rock(Pokemon* ptr);
 
     void hitBy(NormalMove& fm, const double mult = 1) override;
     void hitBy(FireMove& fm, const double mult = 1) override;

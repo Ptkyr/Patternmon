@@ -18,7 +18,7 @@ std::unique_ptr<Pokemon> Route::spawn() {
     std::uniform_int_distribution<> dist{1, 100};
     // generate a pseudo-random int between 1 and 100, inclusive
     const int index = dist(gen);
-    int i = 0;
+    size_t i = 0;
     for (const auto& chance: chances) {
         if (index <= chance) {
             return dex.spawn(spawns[i]);

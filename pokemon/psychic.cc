@@ -1,6 +1,6 @@
 #include "psychic.h"
 
-Psychic::Psychic(Pokemon* p): PokemonDecorator(p) {}
+Psychic::Psychic(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Psychic::hitBy(FightingMove& wm, const double mult) {
     p->hitBy(wm, mult * NVERYEFF);

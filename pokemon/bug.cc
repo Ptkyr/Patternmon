@@ -1,6 +1,6 @@
 #include "bug.h"
 
-Bug::Bug(Pokemon* p): PokemonDecorator(p) {}
+Bug::Bug(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Bug::hitBy(FireMove& wm, const double mult) {
     p->hitBy(wm, mult * SUPEREFF);

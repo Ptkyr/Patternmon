@@ -1,6 +1,6 @@
 #include "rock.h"
 
-Rock::Rock(Pokemon* p): PokemonDecorator(p) {}
+Rock::Rock(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Rock::hitBy(NormalMove& wm, const double mult) {
     p->hitBy(wm, mult * NVERYEFF);

@@ -1,6 +1,6 @@
 #include "water.h"
 
-Water::Water(Pokemon* p): PokemonDecorator(p) {}
+Water::Water(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Water::hitBy(FireMove& wm, const double mult) {
     p->hitBy(wm, mult * NVERYEFF);

@@ -1,6 +1,6 @@
 #include "flying.h"
 
-Flying::Flying(Pokemon* p): PokemonDecorator(p) {}
+Flying::Flying(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Flying::hitBy(GrassMove& wm, const double mult) {
     p->hitBy(wm, mult * NVERYEFF);

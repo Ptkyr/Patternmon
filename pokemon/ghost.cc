@@ -1,6 +1,6 @@
 #include "ghost.h"
 
-Ghost::Ghost(Pokemon* p): PokemonDecorator(p) {}
+Ghost::Ghost(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Ghost::hitBy(NormalMove& wm, const double mult) {
     p->hitBy(wm, mult * IMMUNITY);

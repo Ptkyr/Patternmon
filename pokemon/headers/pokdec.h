@@ -12,7 +12,7 @@ class PokemonDecorator: public Pokemon {
 protected:
     std::unique_ptr<Pokemon> p;
 public:
-    PokemonDecorator(Pokemon* p);
+    PokemonDecorator(Pokemon* ptr);
     virtual ~PokemonDecorator() = 0;
 
     void learn(std::unique_ptr<Move> m) override;

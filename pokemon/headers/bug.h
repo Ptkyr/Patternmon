@@ -5,7 +5,7 @@
 
 class Bug: public PokemonDecorator {
 public:
-    Bug(Pokemon* p);
+    Bug(Pokemon* ptr);
 
     void hitBy(FireMove& fm, const double mult = 1) override;
     void hitBy(GrassMove& gm, const double mult = 1) override;

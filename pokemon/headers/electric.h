@@ -5,7 +5,7 @@
 
 class Electric: public PokemonDecorator {
 public:
-    Electric(Pokemon* p);
+    Electric(Pokemon* ptr);
 
     void hitBy(ElectricMove& gm, const double mult = 1) override;
     void hitBy(GroundMove& gm, const double mult = 1) override;

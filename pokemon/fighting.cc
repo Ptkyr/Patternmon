@@ -1,6 +1,6 @@
 #include "fighting.h"
 
-Fighting::Fighting(Pokemon* p): PokemonDecorator(p) {}
+Fighting::Fighting(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Fighting::hitBy(FlyingMove& wm, const double mult) {
     p->hitBy(wm, mult * SUPEREFF);

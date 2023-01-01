@@ -5,7 +5,7 @@
 
 class Dark: public PokemonDecorator {
 public:
-    Dark(Pokemon* p);
+    Dark(Pokemon* ptr);
 
     void hitBy(FightingMove& fm, const double mult = 1) override;
     void hitBy(PsychicMove& fm, const double mult = 1) override;

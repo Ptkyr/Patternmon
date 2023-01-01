@@ -5,7 +5,7 @@
 
 class Ghost: public PokemonDecorator {
 public:
-    Ghost(Pokemon* p);
+    Ghost(Pokemon* ptr);
 
     void hitBy(NormalMove& fm, const double mult = 1) override;
     void hitBy(FightingMove& gm, const double mult = 1) override;

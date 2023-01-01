@@ -1,6 +1,6 @@
 #include "fairy.h"
 
-Fairy::Fairy(Pokemon* p): PokemonDecorator(p) {}
+Fairy::Fairy(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Fairy::hitBy(FightingMove& wm, const double mult) {
     p->hitBy(wm, mult * NVERYEFF);

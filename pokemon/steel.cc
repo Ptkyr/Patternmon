@@ -1,6 +1,6 @@
 #include "steel.h"
 
-Steel::Steel(Pokemon* p): PokemonDecorator(p) {}
+Steel::Steel(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Steel::hitBy(NormalMove& wm, const double mult) {
     p->hitBy(wm, mult * NVERYEFF);

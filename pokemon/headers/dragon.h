@@ -5,7 +5,7 @@
 
 class Dragon: public PokemonDecorator {
 public:
-    Dragon(Pokemon* p);
+    Dragon(Pokemon* ptr);
 
     void hitBy(FireMove& fm, const double mult = 1) override;
     void hitBy(WaterMove& wm, const double mult = 1) override;

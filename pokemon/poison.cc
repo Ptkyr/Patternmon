@@ -1,6 +1,6 @@
 #include "poison.h"
 
-Poison::Poison(Pokemon* p): PokemonDecorator(p) {}
+Poison::Poison(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Poison::hitBy(GrassMove& wm, const double mult) {
     p->hitBy(wm, mult * NVERYEFF);

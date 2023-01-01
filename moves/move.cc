@@ -11,8 +11,8 @@
 #include <sstream>
 #include <fstream>
 
-Move::Move(std::string n, Category c, int base, int acc, int pp): 
-    name{n}, cat{c}, bp{base}, acc{acc}, pp{pp} {}
+Move::Move(std::string s, Category c, int b, int a, int p): 
+    name{s}, cat{c}, bp{b}, acc{a}, pp{p} {}
 
 Move::~Move() = default;
 

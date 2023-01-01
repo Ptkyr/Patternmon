@@ -5,7 +5,7 @@
 
 class Ice: public PokemonDecorator {
 public:
-    Ice(Pokemon* p);
+    Ice(Pokemon* ptr);
 
     void hitBy(FireMove& fm, const double mult = 1) override;
     void hitBy(IceMove& gm, const double mult = 1) override;

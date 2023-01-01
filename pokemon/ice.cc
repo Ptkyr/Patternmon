@@ -1,6 +1,6 @@
 #include "ice.h"
 
-Ice::Ice(Pokemon* p): PokemonDecorator(p) {}
+Ice::Ice(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Ice::hitBy(FireMove& wm, const double mult) {
     p->hitBy(wm, mult * SUPEREFF);

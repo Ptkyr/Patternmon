@@ -1,6 +1,6 @@
 #include "fire.h"
 
-Fire::Fire(Pokemon* p): PokemonDecorator(p) {}
+Fire::Fire(Pokemon* ptr): PokemonDecorator(ptr) {}
 
 void Fire::hitBy(FireMove& wm, const double mult) {
     p->hitBy(wm, mult * NVERYEFF);

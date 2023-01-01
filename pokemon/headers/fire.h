@@ -5,7 +5,7 @@
 
 class Fire: public PokemonDecorator {
 public:
-    Fire(Pokemon* p);
+    Fire(Pokemon* ptr);
 
     void hitBy(WaterMove& wm, const double mult = 1) override;
     void hitBy(FireMove& fm, const double mult = 1) override;

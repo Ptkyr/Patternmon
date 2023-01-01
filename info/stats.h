@@ -10,7 +10,7 @@ public:
     const int spdef;
     const int spe;
 
-    Stats(int hp, int atk, int def, int spatk, int spdef, int spe);
+    Stats(int h, int a, int d, int spa, int spd, int speed);
     int operator[](const int& x) const;
 };
 
