@@ -2,6 +2,7 @@
 #define __POKEMON_H__
 
 #include <memory>
+#include "infotypes.h"
 
 class Move;
 class WaterMove;

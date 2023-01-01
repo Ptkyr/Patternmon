@@ -19,8 +19,8 @@
 #include "dark.h"
 #include "steel.h"
 #include "fairy.h"
-#include "species.h"
 #include "types.h"
+#include "species.h"
 #include <fstream>
 #include <sstream>
 #include <functional>
@@ -46,7 +46,7 @@ static const std::map<std::string, std::function<void(std::unique_ptr<Pokemon>&)
     {"Dark", addType<Dark>},
     {"Steel", addType<Steel>},
     {"Fairy", addType<Fairy>},
-    {"", [](std::unique_ptr<Pokemon>&){}}
+    {"", [](std::unique_ptr<Pokemon>&){}} // if there's no secondary typing, do nothing
 };
 
 DexImpl::~DexImpl() = default;

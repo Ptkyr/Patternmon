@@ -1,5 +1,5 @@
-#ifndef __DECORATOR_H__
-#define __DECORATOR_H__
+#ifndef __POKEMONDECORATOR_H__
+#define __POKEMONDECORATOR_H__
 
 #include "pokemon.h"
 #include <memory>

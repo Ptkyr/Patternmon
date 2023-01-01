@@ -28,7 +28,6 @@
 
 using std::unique_ptr;
 using std::make_unique;
-using std::make_shared;
 
 int main() {
     auto hydro = makeMove("Hydro Pump");

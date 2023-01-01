@@ -1,5 +1,5 @@
 #include "pokdec.h"
-#include "types.h"
+#include "move.h"
 #include <utility>
 
 PokemonDecorator::PokemonDecorator(Pokemon* p): p{p} {}
@@ -10,8 +10,8 @@ void PokemonDecorator::learn(std::unique_ptr<Move> m) {
     p->learn(std::move(m));
 }
 
-void PokemonDecorator::attack(Pokemon& p) const {
-    this->p->attack(p);
+void PokemonDecorator::attack(Pokemon& poke) const {
+    p->attack(poke);
 }
 
 bool PokemonDecorator::fainted() const {

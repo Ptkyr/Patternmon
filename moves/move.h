@@ -2,6 +2,7 @@
 #define __MOVE_H__
 
 #include <string>
+#include <memory>
 
 class Pokemon;
 
@@ -30,5 +31,7 @@ public:
 
     virtual void hit(Pokemon& p) = 0;
 };
+
+std::unique_ptr<Move> makeMove(const std::string name);
 
 #endif
