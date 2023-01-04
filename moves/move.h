@@ -32,6 +32,8 @@ public:
     virtual void hit(Pokemon& p) = 0;
 };
 
+// returns a Move with all of its stats, etc
+//  based on the information in info/movedata.csv
 std::unique_ptr<Move> makeMove(const std::string name);
 
 #endif

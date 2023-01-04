@@ -14,8 +14,11 @@ class Pokedex {
     ~Pokedex();
 
     void prettyDex();
-    std::unique_ptr<Pokemon> spawn(const std::string& name) const;
     void print(const std::string& name) const;
+
+    // returns a Pokemon with all its stats, typing
+    //  based on info/pokedex.csv
+    std::unique_ptr<Pokemon> spawn(const std::string& name) const;
 };
 
 #endif
