@@ -1,5 +1,6 @@
 #include "cynthia.h"
 #include "player.h"
+#include "singles.h"
 #include "exceptions.h"
 #include <fstream>
 
@@ -13,5 +14,7 @@ int main() {
     std::ifstream team{"./teamfiles/modern_dragmag_finch.txt"};
     team >> pete;
 
-    pete.battle(cynthia);
+    // pete.battle(cynthia);
+    Singles ps{&pete, &cynthia};
+    ps.start();
 }

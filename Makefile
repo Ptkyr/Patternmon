@@ -2,7 +2,8 @@ CXX = g++-11
 CXXFLAGS = -std=c++20 -g -MMD -Wall -Wextra -pedantic -Wshadow \
 		   -Wsign-conversion -Wformat=2 \
 		   -fno-omit-frame-pointer -fsanitize=undefined,address \
-		   -I pokemon -I pokemon/headers -I routes -I info -I dex -I moves -I trainer
+		   -I pokemon -I pokemon/headers -I routes -I info \
+		   -I dex -I moves -I trainer -I battle
 SOURCES = main.cc pokemon.cc species.cc pokdec.cc move.cc \
 		  fire.cc water.cc grass.cc electric.cc normal.cc ice.cc \
 		  fighting.cc poison.cc ground.cc flying.cc psychic.cc bug.cc \
@@ -10,7 +11,8 @@ SOURCES = main.cc pokemon.cc species.cc pokdec.cc move.cc \
 		  stats.cc types.cc \
 		  route.cc \
 		  pokedex.cc deximpl.cc basicdex.cc colourdex.cc \
-		  trainer.cc player.cc cynthia.cc
+		  trainer.cc player.cc cynthia.cc \
+		  battle.cc singles.cc
 OBJECTS = ${SOURCES:.cc=.o}
 OBJ_DIR = ./obj
 DEP_DIR = ${OBJ_DIR}/dep
@@ -29,6 +31,8 @@ vpath %.cc moves
 vpath %.h moves
 vpath %.cc trainer
 vpath %.h trainer
+vpath %.cc battle
+vpath %.h battle
 
 ################# RULES ##################
 ${EXEC}: ${OBJECTS:%=${OBJ_DIR}/%}

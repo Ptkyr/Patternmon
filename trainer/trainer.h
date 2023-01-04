@@ -16,8 +16,10 @@ public:
     virtual ~Trainer() = 0;
 
     const std::string& getName() const;
-    void battle(Trainer& foe);
+    Pokemon* getLead() const;
     void add(std::unique_ptr<Pokemon>& p); 
+
+    virtual Pokemon* getNext() const;
 
     // Overrides current team and reads in a team from standard formatting:
     // Name @ Item
