@@ -12,6 +12,7 @@ class Move;
 class Trainer {
     std::string name;
     std::vector<std::unique_ptr<Pokemon>> team;
+protected:
     Pokemon* lead = nullptr;
 public:
     Trainer(const std::string& s);

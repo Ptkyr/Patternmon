@@ -34,6 +34,5 @@ std::ostream& operator<<(std::ostream& out, const Pokemon& p) {
         out << std::setw(2) << std::right << tmp_move->getPP();
         out << std::setw(6) << ""; // space between moves
     }
-    out << std::endl;
     return out;
 }
