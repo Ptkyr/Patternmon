@@ -26,6 +26,9 @@ public:
 
     void learn(std::unique_ptr<Move> m) override;
     void attack(Pokemon& p) const override;
+    Move* getMove(const size_t x = 0) const override; 
+    size_t moveCount() const override;
+    std::string getName() const override;
 
     bool fainted() const override;
 

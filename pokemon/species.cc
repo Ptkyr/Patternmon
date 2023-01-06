@@ -82,6 +82,19 @@ void Species::helpHit(Move& m, const double mult) {
     calcDamage(m, mult);
 }
 
+size_t Species::moveCount() const {
+    return moves.size();
+}
+
+Move* Species::getMove(const size_t x) const {
+    if (moves.size() == 0) throw NoMovesExcept{name};
+    return moves.at(x).get();
+}
+
+std::string Species::getName() const {
+    return name;
+}
+
 void Species::hitBy(WaterMove& wm, const double mult) {
     helpHit(wm, mult);
 }

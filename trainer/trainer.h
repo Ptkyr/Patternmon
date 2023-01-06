@@ -7,10 +7,12 @@
 #include <memory>
 
 class Pokemon;
+class Move;
 
 class Trainer {
     std::string name;
     std::vector<std::unique_ptr<Pokemon>> team;
+    Pokemon* lead = nullptr;
 public:
     Trainer(const std::string& s);
     virtual ~Trainer() = 0;
@@ -19,7 +21,8 @@ public:
     Pokemon* getLead() const;
     void add(std::unique_ptr<Pokemon>& p); 
 
-    virtual Pokemon* getNext() const;
+    virtual void switchOut();
+    virtual Move* getMove() const;
 
     // Overrides current team and reads in a team from standard formatting:
     // Name @ Item

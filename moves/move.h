@@ -28,6 +28,7 @@ public:
     Category getPS() const;
     virtual std::string getName() const;
     void use();
+    virtual std::string getColour() const = 0;
 
     virtual void hit(Pokemon& p) = 0;
 };
@@ -35,5 +36,7 @@ public:
 // returns a Move with all of its stats, etc
 //  based on the information in info/movedata.csv
 std::unique_ptr<Move> makeMove(const std::string name);
+
+std::ostream& operator<<(std::ostream& out, const Move& m);
 
 #endif

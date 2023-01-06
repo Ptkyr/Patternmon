@@ -6,3 +6,4 @@ way too many design patterns:
 * Visitor: ./pokemon and ./moves
 * PIMPL (and Bridge): ./dex
 * Factory Method: ./routes
+* Template Method/NVI: ./battle

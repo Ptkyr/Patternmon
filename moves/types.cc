@@ -33,7 +33,11 @@ void T::hit(Pokemon& poke) { \
 } \
 \
 std::string T::getName() const { \
-    return colours.at(#T) + name + Termcode::RESET; \
+    return name; \
+} \
+\
+std::string T::getColour() const { \
+    return colours.at(#T); \
 }
 
 MKTYPESPEC(NormalMove);

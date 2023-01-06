@@ -2,6 +2,7 @@
 #include "types.h"
 #include "pokemon.h"
 #include "exceptions.h"
+#include "termcodes.h"
 #include <map>
 #include <algorithm>
 #include <cctype>
@@ -38,6 +39,11 @@ std::string Move::getName() const {
 
 void Move::use() {
     --pp;
+}
+
+std::ostream& operator<<(std::ostream& out, const Move& m) {
+    out << m.getColour() << m.getName() << Termcode::RESET;
+    return out;
 }
 
 // Helper to ensure the return type is correct:

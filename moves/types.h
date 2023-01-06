@@ -12,6 +12,7 @@ public: \
     T(std::string s, Category c, int b, int a, int p); \
     void hit(Pokemon& poke) override; \
     std::string getName() const override; \
+    std::string getColour() const override; \
 }
 
 MKTYPEDECL(NormalMove);

@@ -6,6 +6,8 @@
 class Player: public Trainer {
 public:
     Player(const std::string& s);
+
+//    Move* getMove() const override;
 };
 
 #endif

@@ -22,6 +22,18 @@ bool PokemonDecorator::fainted() const {
     return p->fainted();
 }
 
+Move* PokemonDecorator::getMove(const size_t x) const {
+    return p->getMove(x);
+}
+
+size_t PokemonDecorator::moveCount() const {
+    return p->moveCount();
+}
+
+std::string PokemonDecorator::getName() const {
+    return p->getName();
+}
+
 void PokemonDecorator::hitBy(WaterMove& wm, const double mult) {
     p->hitBy(wm, mult);
 }
