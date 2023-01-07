@@ -29,6 +29,7 @@ public:
     Move* getMove(const size_t x = 0) const override; 
     size_t moveCount() const override;
     std::string getName() const override;
+    Stats& getStats() override;
 
     bool fainted() const override;
 

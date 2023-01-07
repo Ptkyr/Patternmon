@@ -3,10 +3,17 @@
 #include "pokemon.h"
 #include "move.h"
 #include "exceptions.h"
+#include "stats.h"
 #include <utility>
 
 Singles::Singles(Trainer* x, Trainer* y): you{x}, foe{y},
     cur{x->getLead()}, opp{y->getLead()} {}
+
+void Singles::swap() {
+    std::swap(cur, opp);
+    std::swap(you, foe);
+    std::swap(attack, defend);
+}
 
 void Singles::initialMessage() {
     std::cout << "Battle started between ";
@@ -17,29 +24,39 @@ void Singles::initialMessage() {
 }
 
 void Singles::turn() {
-    while (cur) {
+    while (cur && opp) {
+        // Assume you're faster
+        attack = you->getMove();
+        defend = foe->getMove();
+        // If you aren't, just swap places
+        if (cur->getStats().SPE() < opp->getStats().SPE()) swap();
         try {
-            Move* attack = you->getMove();
-            std::cout << cur->getName() << " used " << *attack << "!" << std::endl;
-            if (attack->getPP() <= 0) throw NoPPExcept{};
-            attack->hit(*opp);
-            attack->use();
-        } catch (MoveExcept& mex) {
-            std::cerr << mex.what() << std::endl;
-        }
-        if (opp->fainted()) {
-            foe->switchOut();
-            opp = foe->getLead();
+            halfTurn();
+            halfTurn();
+        } catch (Fainted& f) {
             if (opp) {
                 std::cout << foe->getName() << " sent out ";
                 std::cout << opp->getName() << "!" << std::endl;
-            } else {
-                break;
             }
         }
-        std::swap(cur, opp);
-        std::swap(you, foe);
     }
+}
+
+void Singles::halfTurn() {
+    try {
+        std::cout << cur->getName() << " used " << *attack << "!" << std::endl;
+        if (attack->getPP() <= 0) throw NoPPExcept{};
+        attack->hit(*opp);
+        attack->use();
+    } catch (MoveExcept& mex) {
+        std::cerr << mex.what() << std::endl;
+    }
+    if (opp->fainted()) {
+        foe->switchOut();
+        opp = foe->getLead();
+        throw Fainted{};
+    }
+    swap();
 }
 
 void Singles::endMessage() {

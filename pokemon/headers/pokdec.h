@@ -22,6 +22,7 @@ public:
     virtual Move* getMove(const size_t x = 0) const; 
     virtual size_t moveCount() const;
     virtual std::string getName() const;
+    Stats& getStats() override;
 
     void hitBy(NormalMove& gm, const double mult = 1) override;
     void hitBy(FireMove& fm, const double mult = 1) override;

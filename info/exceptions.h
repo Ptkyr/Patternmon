@@ -65,4 +65,12 @@ public:
     }
 };
 
+class TooBoosted {
+    std::string what() const {
+        return "Cannot go any higher!";
+    }
+};
+
+class Fainted {};
+
 #endif

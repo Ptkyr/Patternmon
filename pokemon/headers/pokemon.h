@@ -6,6 +6,7 @@
 #include <string>
 #include "infotypes.h"
 
+class Stats;
 class Move;
 class WaterMove;
 class FireMove;
@@ -53,6 +54,7 @@ public:
     virtual Move* getMove(const size_t x = 0) const = 0; 
     virtual size_t moveCount() const = 0;
     virtual std::string getName() const = 0;
+    virtual Stats& getStats() = 0;
 
     static std::unique_ptr<Pokemon> spawn(std::istream& in);
 

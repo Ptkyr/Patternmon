@@ -3,6 +3,8 @@
 
 #include "battle.h"
 
+class Move;
+
 class Trainer;
 class Pokemon;
 
@@ -12,8 +14,12 @@ class Singles: public Battle {
     Trainer* foe;
     Pokemon* cur;
     Pokemon* opp;
+    Move* attack = nullptr;
+    Move* defend = nullptr;
 
+    void swap();
     void initialMessage() override;
+    void halfTurn();
     void turn() override;
     void endMessage() override;
 public:

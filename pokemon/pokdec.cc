@@ -34,6 +34,10 @@ std::string PokemonDecorator::getName() const {
     return p->getName();
 }
 
+Stats& PokemonDecorator::getStats() {
+    return p->getStats();
+}
+
 void PokemonDecorator::hitBy(WaterMove& wm, const double mult) {
     p->hitBy(wm, mult);
 }

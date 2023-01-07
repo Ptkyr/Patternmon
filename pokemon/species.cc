@@ -6,7 +6,7 @@
 #include <random>
 
 Species::Species(const std::string& n, Stats s):
-        name{n}, stats{s}, moves{}, hp{2 * stats.hp + level + 10}, max_hp{this->hp} {}
+        name{n}, stats{s}, moves{}, hp{2 * stats.HP() + level + 10}, max_hp{this->hp} {}
 
 Species::~Species() = default;
 
@@ -17,9 +17,9 @@ bool Species::fainted() const {
 void Species::calcDamage(Move& m, const double mult) {
     double tmp = (2 * level / 5 + 2) * m.getBP() / 50;
     if (m.getPS() == Category::Physical) {
-        tmp *= 100.0 / stats.def;
+        tmp *= 100.0 / stats.DEF();
     } else {
-        tmp *= 100.0 / stats.spdef;
+        tmp *= 100.0 / stats.SPDEF();
     }
     const int dmg = tmp * mult;
     std::cout << name << " took " << dmg << " damage!" << std::endl;
@@ -93,6 +93,10 @@ Move* Species::getMove(const size_t x) const {
 
 std::string Species::getName() const {
     return name;
+}
+
+Stats& Species::getStats() {
+    return stats;
 }
 
 void Species::hitBy(WaterMove& wm, const double mult) {
