@@ -23,6 +23,8 @@ public:
     virtual size_t moveCount() const;
     virtual std::string getName() const;
     Stats& getStats() override;
+    int HP() const override;
+    int maxHP() const override;
 
     void hitBy(NormalMove& gm, const double mult = 1) override;
     void hitBy(FireMove& fm, const double mult = 1) override;

@@ -30,6 +30,8 @@ public:
     size_t moveCount() const override;
     std::string getName() const override;
     Stats& getStats() override;
+    int HP() const override;
+    int maxHP() const override;
 
     bool fainted() const override;
 

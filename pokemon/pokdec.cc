@@ -38,6 +38,14 @@ Stats& PokemonDecorator::getStats() {
     return p->getStats();
 }
 
+int PokemonDecorator::HP() const {
+    return p->HP();
+}
+
+int PokemonDecorator::maxHP() const {
+    return p->maxHP();
+}
+
 void PokemonDecorator::hitBy(WaterMove& wm, const double mult) {
     p->hitBy(wm, mult);
 }

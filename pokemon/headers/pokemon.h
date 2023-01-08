@@ -55,6 +55,8 @@ public:
     virtual size_t moveCount() const = 0;
     virtual std::string getName() const = 0;
     virtual Stats& getStats() = 0;
+    virtual int HP() const = 0;
+    virtual int maxHP() const = 0;
 
     static std::unique_ptr<Pokemon> spawn(std::istream& in);
 

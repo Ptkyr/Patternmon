@@ -10,12 +10,20 @@ Trainer::Trainer(const std::string& s): name{s} {}
 
 Trainer::~Trainer() = default;
 
+Pokemon* Trainer::partyAt(const size_t x) const {
+    return team.at(x).get();
+}
+
 const std::string& Trainer::getName() const {
     return name;
 }
 
 Pokemon* Trainer::getLead() const {
     return lead;
+}
+
+size_t Trainer::partySize() const {
+    return team.size();
 }
 
 void Trainer::add(std::unique_ptr<Pokemon>& p) {
@@ -53,4 +61,13 @@ std::istream& operator>>(std::istream& in, Trainer& t) {
     }
     t.lead = t.team.at(0).get();
     return in;
+}
+
+std::ostream& operator<<(std::ostream& out, Trainer& t) {
+    out << std::endl;
+    out << t.getName() << "'s party: " << std::endl;
+    for (const auto& p: t.team) {
+        out << *p;
+    }
+    return out;
 }

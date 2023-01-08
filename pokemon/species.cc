@@ -99,6 +99,14 @@ Stats& Species::getStats() {
     return stats;
 }
 
+int Species::HP() const {
+    return hp;
+}
+
+int Species::maxHP() const {
+    return max_hp;
+}
+
 void Species::hitBy(WaterMove& wm, const double mult) {
     helpHit(wm, mult);
 }

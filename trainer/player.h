@@ -8,6 +8,7 @@ public:
     Player(const std::string& s);
 
     Move* getMove() const override;
+    void switchOut() override;
 };
 
 #endif
