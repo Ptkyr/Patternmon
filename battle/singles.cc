@@ -26,8 +26,13 @@ void Singles::initialMessage() {
 void Singles::turn() {
     while (cur && opp) {
         // Assume you're faster
-        attack = you->getMove();
-        defend = foe->getMove();
+        try { // This sucks, need a better way
+            attack = you->getMove();
+            defend = foe->getMove();
+        } catch (NoPPExcept& npe) {
+            std::cerr << npe.what() << std::endl;
+            continue;
+        }
         // If you aren't, just swap places
         if (cur->getStats().SPE() < opp->getStats().SPE()) swap();
         try {
@@ -45,7 +50,6 @@ void Singles::turn() {
 void Singles::halfTurn() {
     try {
         std::cout << cur->getName() << " used " << *attack << "!" << std::endl;
-        if (attack->getPP() <= 0) throw NoPPExcept{};
         attack->hit(*opp);
         attack->use();
     } catch (MoveExcept& mex) {

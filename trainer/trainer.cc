@@ -1,6 +1,7 @@
 #include "trainer.h"
 #include "exceptions.h"
 #include "pokemon.h"
+#include "move.h"
 #include <utility>
 #include <stdexcept>
 #include <iostream>
@@ -50,7 +51,11 @@ Move* Trainer::getMove() const {
     std::random_device rd;
     std::mt19937 gen{rd()};
     std::uniform_int_distribution<> dist{0, static_cast<int>(lead->moveCount() - 1)};
-    return lead->getMove(static_cast<size_t>(dist(gen)));
+    Move* ret = nullptr;
+    do {
+        ret = lead->getMove(static_cast<size_t>(dist(gen)));
+    } while (ret->getPP() <= 0); // Infinite loop if Struggle
+    return ret;
 }
 
 std::istream& operator>>(std::istream& in, Trainer& t) {

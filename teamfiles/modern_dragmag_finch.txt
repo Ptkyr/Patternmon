@@ -1,3 +1,13 @@
+Starmie @ Air Balloon  
+Ability: Analytic  
+EVs: 252 SpA / 4 SpD / 252 Spe  
+Timid Nature  
+IVs: 0 Atk  
+- Hydro Pump  
+- Ice Beam  
+- Thunderbolt  
+- Rapid Spin  
+
 Garchomp @ Yache Berry  
 Ability: Rough Skin  
 EVs: 252 Atk / 4 SpD / 252 Spe  
@@ -25,16 +35,6 @@ IVs: 2 Atk / 30 SpA / 30 Spe
 - Hidden Power  
 - Sunny Day  
 - Magnet Rise  
-
-Starmie @ Air Balloon  
-Ability: Analytic  
-EVs: 252 SpA / 4 SpD / 252 Spe  
-Timid Nature  
-IVs: 0 Atk  
-- Hydro Pump  
-- Ice Beam  
-- Thunderbolt  
-- Rapid Spin  
 
 Dragonite @ Dragon Gem  
 Ability: Multiscale  

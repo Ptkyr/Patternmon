@@ -1,5 +1,7 @@
 #include "player.h"
 #include "pokemon.h"
+#include "move.h"
+#include "exceptions.h"
 
 Player::Player(const std::string& s): Trainer(s) {}
 
@@ -13,7 +15,9 @@ Move* Player::getMove() const {
         try {
             const int index = std::stoi(n);
             if (index > 0 && index <= max) {
-                return lead->getMove(static_cast<size_t>(index - 1));
+                Move* ret = lead->getMove(static_cast<size_t>(index - 1));
+                if (ret->getPP() <= 0) throw NoPPExcept{};
+                return ret;
             }
         } catch (std::invalid_argument&) {}
         std::cerr << "Enter a valid index: ";
@@ -31,9 +35,12 @@ void Player::switchOut() {
             const int index = std::stoi(str);
             if (index > 0 && index <= max) {
                 Pokemon* tmp = partyAt(static_cast<size_t>(index - 1));
-                if (lead != tmp) {
+                if (tmp->HP() > 0) {
                     lead = tmp;
                     return;
+                } else {
+                    std::cerr << tmp->getName();
+                    std::cerr << " can no longer battle!" << std::endl;
                 }
             }
         } catch (std::invalid_argument&) {}

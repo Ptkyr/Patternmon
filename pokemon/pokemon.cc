@@ -30,9 +30,10 @@ std::ostream& operator<<(std::ostream& out, const Pokemon& p) {
     if (p.HP() > 0) {
         hp_display = std::to_string(p.HP()) + "/" + std::to_string(p.maxHP());
     } else {
-        hp_display = "X";
+        hp_display = "XXX";
+        out << Termcode::RED;
     }
-    out << std::setw(10) << std::right << hp_display << std::endl;
+    out << std::setw(10) << std::right << hp_display << Termcode::RESET << std::endl;
     // Display all moves
     for (size_t i = 0; i < p.moveCount(); ++i) {
         const Move* tmp_move = p.getMove(i);
