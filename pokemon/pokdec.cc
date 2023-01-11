@@ -14,10 +14,6 @@ void PokemonDecorator::learn(std::unique_ptr<Move> m) {
     p->learn(std::move(m));
 }
 
-void PokemonDecorator::attack(Pokemon& poke) const {
-    p->attack(poke);
-}
-
 bool PokemonDecorator::fainted() const {
     return p->fainted();
 }

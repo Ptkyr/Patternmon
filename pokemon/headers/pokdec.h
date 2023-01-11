@@ -16,7 +16,6 @@ public:
     virtual ~PokemonDecorator() = 0;
 
     void learn(std::unique_ptr<Move> m) override;
-    void attack(Pokemon& p) const override;
 
     bool fainted() const override;
     virtual Move* getMove(const size_t x = 0) const; 

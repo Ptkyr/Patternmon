@@ -23,9 +23,10 @@ std::unique_ptr<Pokemon> Pokemon::spawn(std::istream& in) {
 }
 
 std::ostream& operator<<(std::ostream& out, const Pokemon& p) {
-    out << std::endl; // Top buffer
-    out << std::setw(5) << ""; // Slight centering
-    out << std::setw(20) << std::left << p.getName();
+    // Top buffer and centering
+    out << std::endl 
+        << std::setw(5) << "" 
+        << std::setw(20) << std::left << p.getName();
     std::string hp_display;
     if (p.HP() > 0) {
         hp_display = std::to_string(p.HP()) + "/" + std::to_string(p.maxHP());
@@ -33,17 +34,18 @@ std::ostream& operator<<(std::ostream& out, const Pokemon& p) {
         hp_display = "XXX";
         out << Termcode::RED;
     }
-    out << std::setw(10) << std::right << hp_display << Termcode::RESET << std::endl;
+    out << std::setw(10) << std::right << hp_display 
+        << Termcode::RESET << std::endl;
     // Display all moves
     for (size_t i = 0; i < p.moveCount(); ++i) {
         const Move* tmp_move = p.getMove(i);
         if (i == 2) out << std::endl;
-        // Exeedingly wide buffer due to termcodes
-        out << tmp_move->getColour();
-        out << std::setw(15) << std::left << tmp_move->getName();
-        out << Termcode::RESET;
-        out << std::setw(2) << std::right << tmp_move->getPP();
-        out << std::setw(6) << ""; // Space between moves
+        // Termcodes with setw are annoying
+        out << tmp_move->getColour()
+            << std::setw(15) << std::left << tmp_move->getName()
+            << Termcode::RESET 
+            << std::setw(2) << std::right << tmp_move->getPP()
+            << std::setw(6) << ""; // Space between moves
     }
     out << std::endl; // Bottom buffer
     return out;

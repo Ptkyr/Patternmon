@@ -16,9 +16,8 @@ void Singles::swap() {
 }
 
 void Singles::initialMessage() {
-    std::cout << "Battle started between ";
-    std::cout << you->getName() << " and " << foe->getName();
-    std::cout << "!" << std::endl;
+    std::cout << "Battle started between " << you->getName()
+              << " and " << foe->getName() << "!" << std::endl;
     std::cout << you->getName() << " sent out " << cur->getName() << "!" << std::endl;
     std::cout << foe->getName() << " sent out " << opp->getName() << "!" << std::endl;
 }
@@ -40,8 +39,8 @@ void Singles::turn() {
             halfTurn();
         } catch (Fainted& f) {
             if (opp) {
-                std::cout << foe->getName() << " sent out ";
-                std::cout << opp->getName() << "!" << std::endl;
+                std::cout << foe->getName() << " sent out "
+                          << opp->getName() << "!" << std::endl;
             }
         }
     }

@@ -49,18 +49,6 @@ void Species::learn(std::unique_ptr<Move> m) {
     moves.emplace_back(std::move(m));
 }
 
-void Species::attack(Pokemon& p) const {
-    if (moves.size() == 0) throw NoMovesExcept{name};
-    std::random_device rd;
-    std::mt19937 gen{rd()};
-    std::uniform_int_distribution<> dist{0, static_cast<int>(moves.size() - 1)};
-    Move* m = moves[static_cast<size_t>(dist(gen))].get();
-    std::cout << name << " used " << m->getName() << "!" << std::endl;
-    if (m->getPP() <= 0) throw NoPPExcept{};
-    m->hit(p);
-    m->use();
-}
-
 void Species::accuracyCheck(const Move& m) const {
     std::random_device rd;
     std::mt19937 gen{rd()};
