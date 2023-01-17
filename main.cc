@@ -4,9 +4,6 @@
 #include "exceptions.h"
 #include <fstream>
 
-using std::unique_ptr;
-using std::make_unique;
-
 int main() {
     Player pete{"Pete"};
     Cynthia cynthia;

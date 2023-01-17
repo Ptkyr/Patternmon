@@ -24,19 +24,17 @@ void Singles::initialMessage() {
 
 void Singles::turn() {
     while (cur && opp) {
-        // Assume you're faster
-        try { // This sucks, need a better way
+        try {
+            // Assume you're faster
             attack = you->getMove();
             defend = foe->getMove();
+            // If you aren't, just swap places
+            if (cur->getStats().SPE() < opp->getStats().SPE()) swap();
+            halfTurn();
+            halfTurn();
         } catch (NoPPExcept& npe) {
             std::cerr << npe.what() << std::endl;
             continue;
-        }
-        // If you aren't, just swap places
-        if (cur->getStats().SPE() < opp->getStats().SPE()) swap();
-        try {
-            halfTurn();
-            halfTurn();
         } catch (Fainted& f) {
             if (opp) {
                 std::cout << foe->getName() << " sent out "

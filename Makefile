@@ -21,18 +21,12 @@ EXEC = ps
 
 vpath %.cc pokemon
 vpath %.h pokemon/headers
-vpath %.cc routes
-vpath %.h routes
-vpath %.cc info
-vpath %.h info
-vpath %.cc dex
-vpath %.h dex
-vpath %.cc moves
-vpath %.h moves
-vpath %.cc trainer
-vpath %.h trainer
-vpath %.cc battle
-vpath %.h battle
+vpath %.cc %.h routes
+vpath %.cc %.h info
+vpath %.cc %.h dex
+vpath %.cc %.h moves
+vpath %.cc %.h trainer
+vpath %.cc %.h battle
 
 ################# RULES ##################
 ${EXEC}: ${OBJECTS:%=${OBJ_DIR}/%}
