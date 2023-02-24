@@ -73,4 +73,16 @@ class TooBoosted {
 
 class Fainted {};
 
+class BattleError {
+public:
+    virtual std::string what() const = 0;
+};
+
+class BattleInterrupt: public BattleError {
+public:
+    std::string what() const override {
+        return "Battle interrupted.";
+    }
+};
+
 #endif

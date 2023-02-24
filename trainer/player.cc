@@ -10,8 +10,7 @@ Move* Player::getMove() const {
     const int max = lead->moveCount();
     std::cout << *lead << std::endl;
     std::cout << "Select a move (1 -- " << max << "): ";
-    while (true) {
-        std::cin >> n;
+    while (std::cin >> n) {
         try {
             const int index = std::stoi(n);
             if (index > 0 && index <= max) {
@@ -22,6 +21,7 @@ Move* Player::getMove() const {
         } catch (std::invalid_argument&) {}
         std::cerr << "Enter a valid index: ";
     }
+    throw BattleInterrupt{};
 }
 
 void Player::switchOut() {
@@ -29,8 +29,7 @@ void Player::switchOut() {
     const int max = partySize();
     std::cout << *this << std::endl;
     std::cout << "Select a switch-in (1 -- " << max << "): ";
-    while (true) {
-        std::cin >> str;
+    while (std::cin >> str) {
         try {
             const int index = std::stoi(str);
             if (index > 0 && index <= max) {
@@ -39,11 +38,12 @@ void Player::switchOut() {
                     lead = tmp;
                     return;
                 } else {
-                    std::cerr << tmp->getName();
-                    std::cerr << " can no longer battle!" << std::endl;
+                    std::cerr << tmp->getName()
+                              << " can no longer battle!" << std::endl;
                 }
             }
         } catch (std::invalid_argument&) {}
         std::cerr << "Enter a valid index: ";
     }
+    throw BattleInterrupt{};
 }
